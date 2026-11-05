@@ -90,6 +90,19 @@ extern "C" {
 /// kAudioServerPlugInCustomPropertyDataTypeCFPropertyList.
 #define EQT_PROPERTY_CLIENT_LATENCY  0x6571746Cu   /* 'eqtl' */
 
+/// Optional custom device property (CFNumber), added 2026-11-05; the ring
+/// layout is unchanged, so EQT_RING_VERSION stays 1.
+/// SET 1 = "this process reads the ring and is about to route through the
+/// device", SET 0 = "this process no longer does". The driver keeps the set
+/// of attached reader processes (by the caller's pid) and drops a process
+/// when it exits. GET returns how many processes are attached.
+/// Once any process has set it, the device is hidden (IsHidden 1, cannot be
+/// the default output) while NO reader is attached, so neither the user nor
+/// coreaudiod's fallback can make it the default output while nothing plays
+/// what reaches it. A driver nobody has set it on behaves as before (always
+/// visible). Declared like 'eqtl' (CFPropertyList).
+#define EQT_PROPERTY_READER_ATTACHED 0x65717461u   /* 'eqta' */
+
 typedef struct EQTRingHeader {
     /* ---- immutable after creation (written before `magic` is published) ---- */
     uint32_t magic;              /* EQT_RING_MAGIC, stored LAST during init (release) */

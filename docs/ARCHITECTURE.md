@@ -125,6 +125,15 @@ and recreate), writes header fields then publishes `magic` last. App opens it **
 (`O_RDONLY`, `PROT_READ`). Interleaved float32 stereo, capacity 32768 frames, absolute frame
 indexing, `generation` bumps on StartIO / rate change, `writeHead` release/acquire.
 
+**Reader attachment (`'eqta'`, added 2026-11-05, ring layout unchanged):** the app SETs the
+custom device property `EQT_PROPERTY_READER_ATTACHED` (CFNumber) to 1 at the start of every
+route (before it takes macOS's default output) and to 0 once routing is torn down and the
+default is no longer EQtargets Audio. The driver tracks attached processes by pid (exit-watched)
+and, once any process has set the property, hides the device (IsHidden 1, CanBeDefaultDevice 0)
+while none is attached. A hidden device is still found by UID; `DeviceCatalog.virtualDevice()`
+also falls back to the plug-in's own device list. Older drivers lack the property; the app
+then skips it.
+
 Known accepted risk: mode 0644 means any local process can read the system mix from the ring
 (coreaudiod runs as `_coreaudiod`, so the user can't be given exclusive access without root).
 Documented in the security audit; acceptable for a personal-use build.
@@ -139,13 +148,34 @@ Documented in the security audit; acceptable for a personal-use build.
 - Follow macOS: when the default output changes to some other device (user picked it in the
   Sound menu, AirPods connected and macOS switched to them), adopt it as the new real output,
   switch AUHAL to it, then set the default back to EQtargets Audio.
-- Real device disappears → fall back (pinned → last → built-in) without user action.
+- Follow macOS applies unless a pinned device is actually present (an absent pin never makes
+  Control Center picks bounce back).
+- Real device disappears → fall back (pinned → last → built-in) without user action, and
+  remember it: when that device comes back (DAC power cycle, display audio after sleep, a
+  device published late after a coreaudiod restart) route back to it (Follow macOS only).
+- macOS's default output found on EQtargets Audio while this engine isn't playing it (Off,
+  error, stepped aside) → hand it back to a real device, unless another process is attached
+  as a reader (`'eqta'`). With a current driver the device is hidden then anyway.
+- A device that refuses to play (AUHAL init/start fails) is not remembered as the last-used
+  device, and the default goes back to: the device that was playing a moment ago → a recent
+  PERSONAL device (Bluetooth/USB/Thunderbolt) → the refusing device itself. Never a jump onto
+  speakers/TV/AirPlay the user wasn't hearing, never a default left on EQtargets Audio with
+  nothing reading it. Later restores (stranded default) keep avoiding that device until
+  something plays again.
+- The driver's `'eqta'` reader count includes this process while it is attached; only OTHER
+  readers keep a stranded default on EQtargets Audio (`RoutingPolicy.otherReaders`).
+- Volume mirroring to a per-channel-only (L/R) device keeps its balance: the loudest channel
+  is the volume, the others keep their ratio to it.
+- Every teardown of a running output (Off, quit, device switch) fades the device out over
+  5 ms first (bounded wait ≤ 50 ms on the main thread), instead of cutting mid-waveform.
 - Idle power: AUHAL runs only while the virtual device is running somewhere
   (`kAudioDevicePropertyDeviceIsRunningSomewhere`), with a ~3 s hangover; zero CPU when silent.
 - Volume keys move the virtual device's volume/mute. Mirror them to the real device's hardware
   volume/mute when settable; otherwise apply digitally via `ChainParameters.outputGainDB/outputMuted`.
   On power-on, seed the virtual volume from the real device's current volume.
-- Off / quit: restore macOS default output to the real device synchronously.
+- Off / quit: restore macOS default output to the real device synchronously. The app turns
+  SIGTERM / SIGINT / SIGHUP (`pkill`, Ctrl-C, scripts) into a normal quit so this still runs;
+  only SIGKILL skips it, and launch recovery covers that on the next launch.
 - Launch recovery: if macOS's default output is EQtargets Audio but the app is powered off (e.g.
   after a crash), restore it to the last real device immediately.
 - Report pipeline latency to the driver via the `'eqtl'` custom property when supported.
@@ -174,3 +204,9 @@ xcodebuild ... -configuration Release ...
   must be verifiable without installing.
 - Signing is ad-hoc (`-`) everywhere; no team, no sandbox, no hardened runtime. Never change the
   bundle IDs.
+- Test-only hooks (never set them in normal use): `EQT_RING_NAME_OVERRIDE` (driver/harness/probe:
+  private ring) and, in **DEBUG builds only**, `EQT_DEVICE_UID_OVERRIDE` (engine/app: look for a
+  different device UID, i.e. hide an installed driver so the driver-missing paths can be tested
+  without sudo). `EQtargets --ui-selftest` (Debug) uses the latter to drive the REAL
+  EngineController under the real AppModel with an interlock that never powers on if the
+  driver is still visible.

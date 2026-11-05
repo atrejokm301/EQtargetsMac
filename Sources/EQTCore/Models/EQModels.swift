@@ -278,13 +278,29 @@ enum AutoEQParser {
         let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { throw ParseError.empty }
 
+        // Collect every filter first — selecting which to keep needs the whole set.
+        let bands = filters(in: trimmed)
+
+        guard !bands.isEmpty else { throw ParseError.noFilters }
+        return realize(bands)
+    }
+
+    /// Every filter the text defines, in file order, BEFORE the 10-band
+    /// selection — so an import preview can count exactly what `parse` saw
+    /// (the whole text at once; a filter split across lines or several on one
+    /// line count the same way `parse` counts them).
+    ///
+    /// Strict lines first: `Filter N: ON PK Fc … Hz Gain … dB Q …`, where the
+    /// number is optional (Equalizer APO writes `Filter: ON LSC …`), so the
+    /// filter type and ON/OFF are kept. Only if no strict line matched, the
+    /// loose fallback picks up `Fc … Hz … Gain … dB … Q …` (type Peak, ON).
+    static func filters(in text: String) -> [EQBand] {
         // Longest-first alternation: `LS` would otherwise match the prefix of
         // `LSC` and strand the trailing character, failing the whole line.
-        let filterPattern = #/(?i)Filter\s+\d+\s*:\s*(ON|OFF)\s+(LSC|LSQ|LS|HSC|HSQ|HS|PEAK|PEQ|PK|Bell)\s+Fc\s+([+-]?\d+(?:\.\d+)?)\s*Hz\s+Gain\s+([+-]?\d+(?:\.\d+)?)\s*dB\s+Q\s+([+-]?\d+(?:\.\d+)?)/#
+        let filterPattern = #/(?i)Filter\s*\d*\s*:\s*(ON|OFF)\s+(LSC|LSQ|LS|HSC|HSQ|HS|PEAK|PEQ|PK|Bell)\s+Fc\s+([+-]?\d+(?:\.\d+)?)\s*Hz\s+Gain\s+([+-]?\d+(?:\.\d+)?)\s*dB\s+Q\s+([+-]?\d+(?:\.\d+)?)/#
 
-        // Collect every filter first — selecting which to keep needs the whole set.
         var bands: [EQBand] = []
-        for match in trimmed.matches(of: filterPattern) {
+        for match in text.matches(of: filterPattern) {
             bands.append(
                 EQBand(
                     frequency: Double(match.3) ?? 1000,
@@ -297,8 +313,12 @@ enum AutoEQParser {
         }
 
         if bands.isEmpty {
-            let loose = #/(?i)Fc\s+([+-]?\d+(?:\.\d+)?)\s*Hz.*?Gain\s+([+-]?\d+(?:\.\d+)?)\s*dB.*?Q\s+([+-]?\d+(?:\.\d+)?)/#
-            for match in trimmed.matches(of: loose) {
+            // The gaps are BOUNDED (64 characters, never across a line break):
+            // two unbounded lazy `.*?` gaps backtrack cubically on one long
+            // line with no `Q` (8 KB took 15 s, on the main thread). Real
+            // loose formats put a few characters there (", ", "  ").
+            let loose = #/(?i)Fc\s+([+-]?\d+(?:\.\d+)?)\s*Hz.{0,64}?Gain\s+([+-]?\d+(?:\.\d+)?)\s*dB.{0,64}?Q\s+([+-]?\d+(?:\.\d+)?)/#
+            for match in text.matches(of: loose) {
                 bands.append(
                     EQBand(
                         frequency: Double(match.1) ?? 1000,
@@ -308,9 +328,12 @@ enum AutoEQParser {
                 )
             }
         }
+        return bands
+    }
 
-        guard !bands.isEmpty else { throw ParseError.noFilters }
-
+    /// The 10 bands + derived preamp `parse` returns for a non-empty filter set.
+    private static func realize(_ filters: [EQBand]) -> EQLayerState {
+        var bands = filters
         // More filters than hardware bands: keep the ones that shape the curve
         // most, not merely the first ten. Truncating in file order discards the
         // largest correction whenever a preset lists it late.
