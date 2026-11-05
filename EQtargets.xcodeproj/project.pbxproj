@@ -1,0 +1,909 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0DA23C29760C9B688ACBCDAA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EFC381D3967B258395CEF8 /* main.swift */; };
+		148221740129E28CAA8B41B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93A7650C84E91FCB1ACF1DA4 /* Assets.xcassets */; };
+		1DC0B615D41F2C5ED6AD2048 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 352FF3E694A967E66C874D5C /* main.c */; };
+		1F2E91D6C1B322C7FA62FA61 /* TransientPunchProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3F38F21A48A74CED62FC47 /* TransientPunchProcessor.swift */; };
+		21F722DBFFFE075DECD11343 /* BassProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE77790CA11B146798BEDFF /* BassProcessor.swift */; };
+		28201F850C762852D8E35126 /* TransientPunchProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3F38F21A48A74CED62FC47 /* TransientPunchProcessor.swift */; };
+		45196BA59A1882502192D8DE /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8C09D8C623883732062E2193 /* main.c */; };
+		567C67B1AE5ABC7935B55590 /* EQtargetsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1A481808FF0EF343AAE634 /* EQtargetsApp.swift */; };
+		5AD704D91E0CAD14023AA846 /* EQtargetsAudioDriver.bundle in Embed Dependencies */ = {isa = PBXBuildFile; fileRef = 32907C40DEF3B05F79160865 /* EQtargetsAudioDriver.bundle */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		67944532DDE5692C8A4958AB /* ProcessingChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E0619C0B04A7261D37FF /* ProcessingChain.swift */; };
+		6F3C07B76DD97FC3588F91D9 /* EngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227F2E77B3A9483F2BFF92B3 /* EngineController.swift */; };
+		725E6BE24B5B64E633BD25D2 /* EngineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 227F2E77B3A9483F2BFF92B3 /* EngineController.swift */; };
+		82F292BC0F22CA18F45BC8CD /* EQModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88FFE4797181546B08F6657 /* EQModels.swift */; };
+		851D9292A2890D88116F4250 /* EQModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88FFE4797181546B08F6657 /* EQModels.swift */; };
+		8D1E32F02E168D81D8A44053 /* ProcessingChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E0619C0B04A7261D37FF /* ProcessingChain.swift */; };
+		90257A3BA0F2FEAEB531728C /* TransientPunchProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F3F38F21A48A74CED62FC47 /* TransientPunchProcessor.swift */; };
+		B3369F2532C11C791CD63724 /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F851234C58D3F7C9B762019 /* SmokeTests.swift */; };
+		B436C004C21216550C893D3B /* RingReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256921762745FE39DA00FBB9 /* RingReader.swift */; };
+		B728F4826B915AC276D712C9 /* EQtargetsAudioDriver.c in Sources */ = {isa = PBXBuildFile; fileRef = C345CB2FD5831A76CB24B3A4 /* EQtargetsAudioDriver.c */; };
+		C645C4D3A492F1DD6D61CCBB /* BassProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE77790CA11B146798BEDFF /* BassProcessor.swift */; };
+		CECA946B712C55F016F36373 /* ProcessingChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9E0619C0B04A7261D37FF /* ProcessingChain.swift */; };
+		D31EE9F4EDFCA2CDC75AAE3A /* EQModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88FFE4797181546B08F6657 /* EQModels.swift */; };
+		E77094A8CB6D3B395375FEE9 /* RingReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256921762745FE39DA00FBB9 /* RingReader.swift */; };
+		EE4951B079B79DA7580B09E2 /* RingReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256921762745FE39DA00FBB9 /* RingReader.swift */; };
+		F1BD58ED8D1F00DA59D0EF46 /* BassProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FE77790CA11B146798BEDFF /* BassProcessor.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		57E4D36578983AFB51DF9D57 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1BB0334C035267D81A4CF3F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C365EDE442943FC9CFF03C7C;
+			remoteInfo = EQtargetsAudioDriver;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		887EC6BFB3ECC76AD21A8C0B /* Embed Dependencies */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				5AD704D91E0CAD14023AA846 /* EQtargetsAudioDriver.bundle in Embed Dependencies */,
+			);
+			name = "Embed Dependencies";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		17EFC381D3967B258395CEF8 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1B1A7EC8AD5754CF7775414A /* EQTRingProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EQTRingProtocol.h; sourceTree = "<group>"; };
+		227F2E77B3A9483F2BFF92B3 /* EngineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineController.swift; sourceTree = "<group>"; };
+		256921762745FE39DA00FBB9 /* RingReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingReader.swift; sourceTree = "<group>"; };
+		2F1348F08812A33BA45FD7FE /* eqt-probe */ = {isa = PBXFileReference; includeInIndex = 0; path = "eqt-probe"; sourceTree = BUILT_PRODUCTS_DIR; };
+		32907C40DEF3B05F79160865 /* EQtargetsAudioDriver.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EQtargetsAudioDriver.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		352FF3E694A967E66C874D5C /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		5060EB53DE07EE8FBA31F0B7 /* EQTCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EQTCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		50C0C9ED51094B9D47303A97 /* eqt-driver-harness */ = {isa = PBXFileReference; includeInIndex = 0; path = "eqt-driver-harness"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F3F38F21A48A74CED62FC47 /* TransientPunchProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransientPunchProcessor.swift; sourceTree = "<group>"; };
+		6F851234C58D3F7C9B762019 /* SmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTests.swift; sourceTree = "<group>"; };
+		6FE77790CA11B146798BEDFF /* BassProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassProcessor.swift; sourceTree = "<group>"; };
+		8C09D8C623883732062E2193 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		93A7650C84E91FCB1ACF1DA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		99F9E0619C0B04A7261D37FF /* ProcessingChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingChain.swift; sourceTree = "<group>"; };
+		9BDFC2FB2855271169D8B8D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		B88FFE4797181546B08F6657 /* EQModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQModels.swift; sourceTree = "<group>"; };
+		BB1A481808FF0EF343AAE634 /* EQtargetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQtargetsApp.swift; sourceTree = "<group>"; };
+		C345CB2FD5831A76CB24B3A4 /* EQtargetsAudioDriver.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = EQtargetsAudioDriver.c; sourceTree = "<group>"; };
+		C9929952E4EE876FC7FD3F55 /* EQtargets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EQtargets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF250F51C1AC7C10497328D4 /* eqt-engine */ = {isa = PBXFileReference; includeInIndex = 0; path = "eqt-engine"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E943F8189E579F7E0232FD8B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F6F22EC9B3A9E27D2F1406C1 /* EQtargets-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EQtargets-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0871ECC37BC2CB90D651DDCF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				443E31D058A32EA2BF903DFF /* EQTCoreTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		08BE13EF5F17FC0431B7C1B6 /* probe */ = {
+			isa = PBXGroup;
+			children = (
+				352FF3E694A967E66C874D5C /* main.c */,
+			);
+			path = probe;
+			sourceTree = "<group>";
+		};
+		34634EEAA5BDF73C992C1BF3 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				3AEC7C22097AA4397330FB94 /* App */,
+				DD14E624CC3172E90DDDC5D5 /* EQTAudio */,
+				D053D14E1035203E6AFE7EE0 /* EQTCore */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		3AEC7C22097AA4397330FB94 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BB1A481808FF0EF343AAE634 /* EQtargetsApp.swift */,
+				9BDFC2FB2855271169D8B8D0 /* Info.plist */,
+				818BABBEBDA38AFF5DF03071 /* Resources */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		443E31D058A32EA2BF903DFF /* EQTCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				6F851234C58D3F7C9B762019 /* SmokeTests.swift */,
+			);
+			path = EQTCoreTests;
+			sourceTree = "<group>";
+		};
+		5140907AAA262A226D0A5677 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				50C0C9ED51094B9D47303A97 /* eqt-driver-harness */,
+				CF250F51C1AC7C10497328D4 /* eqt-engine */,
+				2F1348F08812A33BA45FD7FE /* eqt-probe */,
+				C9929952E4EE876FC7FD3F55 /* EQtargets.app */,
+				32907C40DEF3B05F79160865 /* EQtargetsAudioDriver.bundle */,
+				5060EB53DE07EE8FBA31F0B7 /* EQTCoreTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		59946DAE012C47A0D018542D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6FE77790CA11B146798BEDFF /* BassProcessor.swift */,
+				B88FFE4797181546B08F6657 /* EQModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		60317A15D69B71E98E806F50 /* driver-harness */ = {
+			isa = PBXGroup;
+			children = (
+				8C09D8C623883732062E2193 /* main.c */,
+			);
+			path = "driver-harness";
+			sourceTree = "<group>";
+		};
+		818BABBEBDA38AFF5DF03071 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				93A7650C84E91FCB1ACF1DA4 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		901E669F9593D50940F225CF /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				C345CB2FD5831A76CB24B3A4 /* EQtargetsAudioDriver.c */,
+				E943F8189E579F7E0232FD8B /* Info.plist */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		9E54F6D303496F81EE9C9D0B = {
+			isa = PBXGroup;
+			children = (
+				901E669F9593D50940F225CF /* Driver */,
+				F622CBF6CE0BF4B63F2389EB /* Shared */,
+				34634EEAA5BDF73C992C1BF3 /* Sources */,
+				0871ECC37BC2CB90D651DDCF /* Tests */,
+				E0C286F3C52746BDF1CBEC88 /* Tools */,
+				5140907AAA262A226D0A5677 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D053D14E1035203E6AFE7EE0 /* EQTCore */ = {
+			isa = PBXGroup;
+			children = (
+				F388F87E4544507E5D7B0DC7 /* DSP */,
+				59946DAE012C47A0D018542D /* Models */,
+			);
+			path = EQTCore;
+			sourceTree = "<group>";
+		};
+		DAE05B5BEFE139C53181DD96 /* engine-cli */ = {
+			isa = PBXGroup;
+			children = (
+				17EFC381D3967B258395CEF8 /* main.swift */,
+			);
+			path = "engine-cli";
+			sourceTree = "<group>";
+		};
+		DD14E624CC3172E90DDDC5D5 /* EQTAudio */ = {
+			isa = PBXGroup;
+			children = (
+				227F2E77B3A9483F2BFF92B3 /* EngineController.swift */,
+			);
+			path = EQTAudio;
+			sourceTree = "<group>";
+		};
+		E0C286F3C52746BDF1CBEC88 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				60317A15D69B71E98E806F50 /* driver-harness */,
+				DAE05B5BEFE139C53181DD96 /* engine-cli */,
+				08BE13EF5F17FC0431B7C1B6 /* probe */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		F388F87E4544507E5D7B0DC7 /* DSP */ = {
+			isa = PBXGroup;
+			children = (
+				99F9E0619C0B04A7261D37FF /* ProcessingChain.swift */,
+				256921762745FE39DA00FBB9 /* RingReader.swift */,
+				6F3F38F21A48A74CED62FC47 /* TransientPunchProcessor.swift */,
+			);
+			path = DSP;
+			sourceTree = "<group>";
+		};
+		F622CBF6CE0BF4B63F2389EB /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				F6F22EC9B3A9E27D2F1406C1 /* EQtargets-Bridging-Header.h */,
+				1B1A7EC8AD5754CF7775414A /* EQTRingProtocol.h */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0253AB0EB98A00425ECD4951 /* eqt-engine */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4FA7E6FB964D1EB71F5D73F /* Build configuration list for PBXNativeTarget "eqt-engine" */;
+			buildPhases = (
+				BAC2E7EDDBD5F36D6C76D751 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "eqt-engine";
+			packageProductDependencies = (
+			);
+			productName = "eqt-engine";
+			productReference = CF250F51C1AC7C10497328D4 /* eqt-engine */;
+			productType = "com.apple.product-type.tool";
+		};
+		4C7CBBB07704DA8A92F35449 /* EQTCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C2E9941153F9D397C2E0B54 /* Build configuration list for PBXNativeTarget "EQTCoreTests" */;
+			buildPhases = (
+				165AA384B9FF72B840C4EC01 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EQTCoreTests;
+			packageProductDependencies = (
+			);
+			productName = EQTCoreTests;
+			productReference = 5060EB53DE07EE8FBA31F0B7 /* EQTCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		56A33341CE662A5F08939AFC /* eqt-driver-harness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D170602725B27666A56CDAC0 /* Build configuration list for PBXNativeTarget "eqt-driver-harness" */;
+			buildPhases = (
+				5C76778428824F99C08D0297 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "eqt-driver-harness";
+			packageProductDependencies = (
+			);
+			productName = "eqt-driver-harness";
+			productReference = 50C0C9ED51094B9D47303A97 /* eqt-driver-harness */;
+			productType = "com.apple.product-type.tool";
+		};
+		8514429C9952166A1994AD50 /* eqt-probe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01A874A30778487C4C91CD3F /* Build configuration list for PBXNativeTarget "eqt-probe" */;
+			buildPhases = (
+				C7C124E15F2254F2DF448AEE /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "eqt-probe";
+			packageProductDependencies = (
+			);
+			productName = "eqt-probe";
+			productReference = 2F1348F08812A33BA45FD7FE /* eqt-probe */;
+			productType = "com.apple.product-type.tool";
+		};
+		9960CBDFDA9C7EECAB4D954A /* EQtargets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99EEEE3CBA7D42AA34E5C661 /* Build configuration list for PBXNativeTarget "EQtargets" */;
+			buildPhases = (
+				889DD1405FA894A058270355 /* Sources */,
+				7559BF75834C94FA3F871DBA /* Resources */,
+				887EC6BFB3ECC76AD21A8C0B /* Embed Dependencies */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A12CB0CE5798F2456F8F7232 /* PBXTargetDependency */,
+			);
+			name = EQtargets;
+			packageProductDependencies = (
+			);
+			productName = EQtargets;
+			productReference = C9929952E4EE876FC7FD3F55 /* EQtargets.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C365EDE442943FC9CFF03C7C /* EQtargetsAudioDriver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F50BB0370BC527A84238039F /* Build configuration list for PBXNativeTarget "EQtargetsAudioDriver" */;
+			buildPhases = (
+				B8E65CEDF7E482980368E780 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EQtargetsAudioDriver;
+			packageProductDependencies = (
+			);
+			productName = EQtargetsAudioDriver;
+			productReference = 32907C40DEF3B05F79160865 /* EQtargetsAudioDriver.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1BB0334C035267D81A4CF3F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0253AB0EB98A00425ECD4951 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					4C7CBBB07704DA8A92F35449 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					56A33341CE662A5F08939AFC = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					8514429C9952166A1994AD50 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					9960CBDFDA9C7EECAB4D954A = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+					C365EDE442943FC9CFF03C7C = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 5350CDF38154F7F5352B3CCE /* Build configuration list for PBXProject "EQtargets" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 9E54F6D303496F81EE9C9D0B;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 5140907AAA262A226D0A5677 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9960CBDFDA9C7EECAB4D954A /* EQtargets */,
+				C365EDE442943FC9CFF03C7C /* EQtargetsAudioDriver */,
+				4C7CBBB07704DA8A92F35449 /* EQTCoreTests */,
+				8514429C9952166A1994AD50 /* eqt-probe */,
+				56A33341CE662A5F08939AFC /* eqt-driver-harness */,
+				0253AB0EB98A00425ECD4951 /* eqt-engine */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7559BF75834C94FA3F871DBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				148221740129E28CAA8B41B1 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		165AA384B9FF72B840C4EC01 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21F722DBFFFE075DECD11343 /* BassProcessor.swift in Sources */,
+				82F292BC0F22CA18F45BC8CD /* EQModels.swift in Sources */,
+				8D1E32F02E168D81D8A44053 /* ProcessingChain.swift in Sources */,
+				E77094A8CB6D3B395375FEE9 /* RingReader.swift in Sources */,
+				B3369F2532C11C791CD63724 /* SmokeTests.swift in Sources */,
+				90257A3BA0F2FEAEB531728C /* TransientPunchProcessor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5C76778428824F99C08D0297 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				45196BA59A1882502192D8DE /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		889DD1405FA894A058270355 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1BD58ED8D1F00DA59D0EF46 /* BassProcessor.swift in Sources */,
+				D31EE9F4EDFCA2CDC75AAE3A /* EQModels.swift in Sources */,
+				567C67B1AE5ABC7935B55590 /* EQtargetsApp.swift in Sources */,
+				725E6BE24B5B64E633BD25D2 /* EngineController.swift in Sources */,
+				CECA946B712C55F016F36373 /* ProcessingChain.swift in Sources */,
+				EE4951B079B79DA7580B09E2 /* RingReader.swift in Sources */,
+				28201F850C762852D8E35126 /* TransientPunchProcessor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8E65CEDF7E482980368E780 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B728F4826B915AC276D712C9 /* EQtargetsAudioDriver.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAC2E7EDDBD5F36D6C76D751 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C645C4D3A492F1DD6D61CCBB /* BassProcessor.swift in Sources */,
+				851D9292A2890D88116F4250 /* EQModels.swift in Sources */,
+				6F3C07B76DD97FC3588F91D9 /* EngineController.swift in Sources */,
+				67944532DDE5692C8A4958AB /* ProcessingChain.swift in Sources */,
+				B436C004C21216550C893D3B /* RingReader.swift in Sources */,
+				1F2E91D6C1B322C7FA62FA61 /* TransientPunchProcessor.swift in Sources */,
+				0DA23C29760C9B688ACBCDAA /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C7C124E15F2254F2DF448AEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DC0B615D41F2C5ED6AD2048 /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A12CB0CE5798F2456F8F7232 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C365EDE442943FC9CFF03C7C /* EQtargetsAudioDriver */;
+			targetProxy = 57E4D36578983AFB51DF9D57 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2AEBBF344DC49C4F4E4719EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Shared";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = "-framework CoreAudio -framework CoreFoundation";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eqtargets.eqt-driver-harness";
+				PRODUCT_NAME = "eqt-driver-harness";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		2F8C09EF64E91CDA185272A3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Shared";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = "-framework CoreAudio -framework CoreFoundation";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eqtargets.eqt-driver-harness";
+				PRODUCT_NAME = "eqt-driver-harness";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		5B8DA9084DB3D340E35236C4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Shared";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = "-framework CoreAudio -framework CoreFoundation -framework AudioToolbox";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eqtargets.eqt-probe";
+				PRODUCT_NAME = "eqt-probe";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		6D16C88D56FCD0F001405A6C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8049BFBD1BAA85D0E8E86E6E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.app.coretests;
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/EQtargets-Bridging-Header.h";
+				TEST_HOST = "";
+			};
+			name = Release;
+		};
+		8B0CE6BCF4A1061F368F3517 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				INFOPLIST_FILE = Sources/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.app;
+				PRODUCT_NAME = EQtargets;
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/EQtargets-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		8E0BE94AC2131CFCE84118A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Shared";
+				INFOPLIST_FILE = Driver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = "-framework CoreAudio -framework CoreFoundation";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.app.driver;
+				PRODUCT_NAME = EQtargetsAudio;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = driver;
+			};
+			name = Release;
+		};
+		92FA8C094C6CB189B18E2D63 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B1CD148A83720DFDB90E8B2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eqtargets.eqt-engine";
+				PRODUCT_NAME = "eqt-engine";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/EQtargets-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		C22F2E0E827136D17EEE42C6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.app.coretests;
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/EQtargets-Bridging-Header.h";
+				TEST_HOST = "";
+			};
+			name = Debug;
+		};
+		C608F8A61E091BEA8BD2BD1C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_APP_SANDBOX = NO;
+				INFOPLIST_FILE = Sources/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.app;
+				PRODUCT_NAME = EQtargets;
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/EQtargets-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		E1AF1A051F95E2D0E41D8296 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eqtargets.eqt-engine";
+				PRODUCT_NAME = "eqt-engine";
+				SDKROOT = macosx;
+				SWIFT_OBJC_BRIDGING_HEADER = "Shared/EQtargets-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		EF6D0B46D6B4EEE697F5F5AD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
+				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Shared";
+				INFOPLIST_FILE = Driver/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = "-framework CoreAudio -framework CoreFoundation";
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.app.driver;
+				PRODUCT_NAME = EQtargetsAudio;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = driver;
+			};
+			name = Debug;
+		};
+		F68A42D5A34CBFD74ACBF79A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/Shared";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				OTHER_LDFLAGS = "-framework CoreAudio -framework CoreFoundation -framework AudioToolbox";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eqtargets.eqt-probe";
+				PRODUCT_NAME = "eqt-probe";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01A874A30778487C4C91CD3F /* Build configuration list for PBXNativeTarget "eqt-probe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F68A42D5A34CBFD74ACBF79A /* Debug */,
+				5B8DA9084DB3D340E35236C4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4C2E9941153F9D397C2E0B54 /* Build configuration list for PBXNativeTarget "EQTCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C22F2E0E827136D17EEE42C6 /* Debug */,
+				8049BFBD1BAA85D0E8E86E6E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5350CDF38154F7F5352B3CCE /* Build configuration list for PBXProject "EQtargets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92FA8C094C6CB189B18E2D63 /* Debug */,
+				6D16C88D56FCD0F001405A6C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		99EEEE3CBA7D42AA34E5C661 /* Build configuration list for PBXNativeTarget "EQtargets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B0CE6BCF4A1061F368F3517 /* Debug */,
+				C608F8A61E091BEA8BD2BD1C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D170602725B27666A56CDAC0 /* Build configuration list for PBXNativeTarget "eqt-driver-harness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2F8C09EF64E91CDA185272A3 /* Debug */,
+				2AEBBF344DC49C4F4E4719EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D4FA7E6FB964D1EB71F5D73F /* Build configuration list for PBXNativeTarget "eqt-engine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1AF1A051F95E2D0E41D8296 /* Debug */,
+				B1CD148A83720DFDB90E8B2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		F50BB0370BC527A84238039F /* Build configuration list for PBXNativeTarget "EQtargetsAudioDriver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EF6D0B46D6B4EEE697F5F5AD /* Debug */,
+				8E0BE94AC2131CFCE84118A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1BB0334C035267D81A4CF3F4 /* Project object */;
+}
