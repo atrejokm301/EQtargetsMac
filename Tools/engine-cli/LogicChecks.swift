@@ -578,6 +578,48 @@ enum LogicChecks {
         return out
     }
 
+    /// Runs the installer's real `unquarantineCommand` (unprivileged) on a
+    /// scratch bundle copied with `ditto`, as a downloaded app's embedded
+    /// driver would be: the copy must lose `com.apple.quarantine`, keep its
+    /// other attributes, and leave a symlink's target outside it untouched.
+    private static func quarantine(_ r: SelfTestReport, in tmp: URL) {
+        let src = tmp.appendingPathComponent("Qtn.driver")
+        let dst = tmp.appendingPathComponent("QtnInstalled.driver")
+        let outside = tmp.appendingPathComponent("qtn-outside")
+        let plist = src.appendingPathComponent("Contents/Info.plist")
+        try? FileManager.default.createDirectory(at: plist.deletingLastPathComponent(), withIntermediateDirectories: true)
+        FileManager.default.createFile(atPath: plist.path, contents: Data("x".utf8))
+        FileManager.default.createFile(atPath: outside.path, contents: Data("o".utf8))
+        try? FileManager.default.createSymbolicLink(atPath: src.appendingPathComponent("Contents/link").path,
+                                                    withDestinationPath: outside.path)
+        let qtn = "com.apple.quarantine", flag = "0081;00000000;Safari;"
+        func has(_ path: String, _ name: String) -> Bool { getxattr(path, name, nil, 0, 0, 0) >= 0 }
+        let set = [src.path, plist.path, outside.path].allSatisfy { setxattr($0, qtn, flag, flag.utf8.count, 0, 0) == 0 }
+            && setxattr(plist.path, "com.eqtargets.keep", "1", 1, 0, 0) == 0
+        func sh(_ cmd: String) -> Int32 {
+            let p = Process()
+            p.executableURL = URL(fileURLWithPath: "/bin/sh")
+            p.arguments = ["-c", cmd]
+            p.standardError = FileHandle.nullDevice
+            p.standardOutput = FileHandle.nullDevice
+            try? p.run()
+            p.waitUntilExit()
+            return p.terminationStatus
+        }
+        let q = "'\(dst.path)'"
+        let copied = sh("/usr/bin/ditto '\(src.path)' \(q)") == 0
+        let out = dst.appendingPathComponent("Contents/Info.plist").path
+        let carried = has(out, qtn)          // proves the check below can fail
+        let ran = sh(DriverInstaller.unquarantineCommand(q)) == 0
+        r.check("unquarantineCommand: a downloaded (quarantined) driver installs without the quarantine flag",
+                set && copied && carried && ran && !has(dst.path, qtn) && !has(out, qtn),
+                "flag set \(set), copied \(copied), ditto carried it \(carried), ran \(ran)")
+        r.check("unquarantineCommand: other attributes kept, symlink target outside the bundle untouched",
+                has(out, "com.eqtargets.keep") && has(outside.path, qtn))
+        let again = sh(DriverInstaller.unquarantineCommand(q)) == 0
+        r.check("unquarantineCommand: exits 0 on a bundle with no quarantine (never blocks the install)", again)
+    }
+
     /// Runs the installer's real `hardenCommand` (unprivileged, on a scratch
     /// bundle this process owns) against what a tampered source could carry:
     /// an "everyone allow write" ACL, setuid / setgid / sticky bits,
@@ -662,6 +704,13 @@ enum LogicChecks {
                 script.contains("with administrator privileges") && script.contains("/usr/bin/ditto")
                     && script.contains("chown -R root:wheel") && script.contains("kickstart -k system/com.apple.audio.coreaudiod")
                     && script.contains("killall coreaudiod") && script.contains("'/Library/Audio/Plug-Ins/HAL/EQtargetsAudio.driver'"))
+
+        let hardenAt = script.range(of: "chmod -R -N")?.lowerBound
+        let unqAt = script.range(of: DriverInstaller.unquarantineCommand("'/Library/Audio/Plug-Ins/HAL/EQtargetsAudio.driver'"))?.lowerBound
+        let restartAt = script.range(of: "kickstart -k")?.lowerBound
+        r.check("install script: download quarantine dropped from the installed copy, before coreaudiod restarts",
+                hardenAt != nil && unqAt != nil && restartAt != nil && hardenAt! < unqAt! && unqAt! < restartAt!)
+        quarantine(r, in: tmp)
 
         let chownAt = script.range(of: "chown -R root:wheel")?.lowerBound
         let aclAt = script.range(of: "chmod -R -N")?.lowerBound

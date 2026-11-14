@@ -94,12 +94,13 @@ enum DriverInstaller {
 
     /// Copy (replacing any older copy), make it root-owned and hardened
     /// (`hardenCommand`: coreaudiod refuses or warns on group/world-writable
-    /// plug-ins), restart coreaudiod.
+    /// plug-ins), drop the download quarantine (`unquarantineCommand`),
+    /// restart coreaudiod.
     static var installScript: [String] {
         let dst = "'\(installedPath)'"
         return scriptLines(
             shellPrefix: "/bin/mkdir -p '\(halDirectory)' && /bin/rm -rf \(dst) && /usr/bin/ditto ",
-            shellSuffix: " \(dst) && /usr/sbin/chown -R root:wheel \(dst) && \(hardenCommand(dst)) && \(restartCoreAudio)",
+            shellSuffix: " \(dst) && /usr/sbin/chown -R root:wheel \(dst) && \(hardenCommand(dst)) && \(unquarantineCommand(dst)) && \(restartCoreAudio)",
             privileged: true)
     }
 
@@ -111,6 +112,15 @@ enum DriverInstaller {
     /// and all group / world write. `-R` never follows symlinks (`-P`).
     static func hardenCommand(_ quotedPath: String) -> String {
         "/bin/chmod -R -N \(quotedPath) && /bin/chmod -R a-st,go-w \(quotedPath)"
+    }
+
+    /// An app downloaded from the web carries `com.apple.quarantine` on every
+    /// file inside it, and `ditto` copies that flag onto the installed driver
+    /// (`--noqtn` does not stop it: measured), so coreaudiod would be handed
+    /// untrusted, never-approved code. Removes only that attribute, exits 0
+    /// when there is none, and `-s` never follows a symlink out of the bundle.
+    static func unquarantineCommand(_ quotedPath: String) -> String {
+        "/usr/bin/xattr -drs com.apple.quarantine \(quotedPath)"
     }
 
     static var uninstallScript: [String] {
