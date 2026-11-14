@@ -114,7 +114,7 @@ WriteMix does nothing (the error is logged under subsystem
 
 ```bash
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-cd ~/ParametricEQ && xcodegen generate
+xcodegen generate                                            # from the repo root
 xcodebuild -project EQtargets.xcodeproj -scheme eqt-driver-harness -derivedDataPath build/driver build
 build/driver/Build/Products/Debug/eqt-driver-harness          # every line PASS, exit 0
 ```
@@ -150,5 +150,7 @@ After installing:
 - `eqt-probe --selftest` plays a tone **directly into** EQtargets Audio and
   verifies it through the ring. It never changes the default output.
 
-Ad-hoc signed HAL plug-ins load on this Mac. Other Macs need Developer ID
-signing and notarization.
+The driver is ad-hoc signed, like the app. Ad-hoc signed HAL plug-ins load
+fine once the download quarantine is gone, and the in-app installer removes it
+from the installed copy. Developer ID signing and notarization would only
+remove the one-time Gatekeeper approval of the app.

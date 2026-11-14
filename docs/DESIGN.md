@@ -677,7 +677,7 @@ change in luminance, not saturation.
 Implement as dynamic `NSColor(name:dynamicProvider:)` wrapped in `Color(nsColor:)` (§14). Don't use
 an asset catalog or forced themes. AppKit then resolves the appearance inside sheets, popovers and
 the MenuBarExtra window automatically. (The iOS app needed manual `\.colorScheme` plumbing for
-exactly this; see Kevin's memory note on forced themes.) The Mac follows the system appearance
+exactly this.) The Mac follows the system appearance
 only, so the iOS surface skins (Warm/White/Black/Navy) are **not** ported in v1.
 
 **Reference surfaces** used for the contrast maths:

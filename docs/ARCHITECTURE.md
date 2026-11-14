@@ -1,11 +1,11 @@
 # EQtargets for Mac — architecture & build contract
 
-**Product:** EQtargets (macOS), bundle `com.eqtargets.app`, repo `~/ParametricEQ`.
+**Product:** EQtargets (macOS), bundle `com.eqtargets.app`.
 A system-wide parametric EQ for MacBooks, like eqMac but friendlier. Rebuilt from
 scratch on 2026-11-04 after the original project was lost in a Mac migration.
 
-Sister app: **EQtargets Music** (iOS) at `~/EQtargetsMusic` (read-only reference — never
-edit it from this project). Its DSP was confirmed by ear on device by the owner (Kevin);
+Sister app: **EQtargets Music** (iOS), [github.com/atrejokm301/EQtargetsMusic](https://github.com/atrejokm301/EQtargetsMusic)
+(a read-only reference — never edit it from this project). Its DSP was confirmed by ear on device by the owner (Kevin);
 this app ports that DSP rather than re-inventing it.
 
 ## 1. What the user gets
@@ -184,7 +184,7 @@ Documented in the security audit; acceptable for a personal-use build.
 
 ```bash
 export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-cd ~/ParametricEQ
+cd EQtargetsMac                                     # the repo root
 xcodegen generate                                   # after adding/removing files or editing project.yml
 # Use YOUR OWN derived-data dir per work stream so parallel builds never collide:
 xcodebuild -project EQtargets.xcodeproj -scheme EQTCoreTests -derivedDataPath build/<you> test   # use `test`, not `build` (logic-test bundle has no build destination)
