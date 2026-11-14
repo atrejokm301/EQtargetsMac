@@ -183,6 +183,38 @@ enum HAL {
         return v.map(Int.init)
     }
 
+    /// The IO buffer sizes the device accepts, in frames (nil if unreadable or
+    /// nonsensical — the values come from a driver, so nothing is trusted).
+    static func bufferFrameSizeRange(_ device: AudioObjectID) -> ClosedRange<Int>? {
+        guard let r: AudioValueRange = get(device, address(kAudioDevicePropertyBufferFrameSizeRange)),
+              r.mMinimum.isFinite, r.mMaximum.isFinite, r.mMinimum >= 1, r.mMaximum >= r.mMinimum,
+              r.mMaximum <= 1_048_576 else { return nil }
+        let lo = Int(r.mMinimum.rounded(.up)), hi = Int(r.mMaximum.rounded(.down))
+        return lo <= hi ? lo ... hi : nil
+    }
+
+    /// Asks `device` for an IO buffer of at most `frames` for THIS process
+    /// (the HAL keeps the size per process and forgets it when the process
+    /// exits). Never asks for a larger buffer than the device runs now, stays
+    /// inside the device's range, and returns the size the device reports
+    /// afterwards — so a device that refuses simply keeps its current size.
+    static func requestBufferFrameSize(_ device: AudioObjectID, atMost frames: Int) -> Int? {
+        guard let current = bufferFrameSize(device) else { return nil }
+        guard let want = bufferRequest(current: current, preferred: frames, range: bufferFrameSizeRange(device)),
+              isSettable(device, address(kAudioDevicePropertyBufferFrameSize)) else { return current }
+        set(device, address(kAudioDevicePropertyBufferFrameSize), UInt32(want))
+        return bufferFrameSize(device) ?? current
+    }
+
+    /// Pure part of `requestBufferFrameSize`: the size to ask for, or nil when
+    /// nothing should be set (the device already runs that small or smaller).
+    static func bufferRequest(current: Int, preferred: Int, range: ClosedRange<Int>?) -> Int? {
+        guard preferred > 0 else { return nil }
+        var want = preferred
+        if let range { want = min(max(want, range.lowerBound), range.upperBound) }
+        return want < current ? want : nil
+    }
+
     static func isAlive(_ device: AudioObjectID) -> Bool {
         (get(device, address(kAudioDevicePropertyDeviceIsAlive)) as UInt32?).map { $0 != 0 } ?? false
     }

@@ -216,6 +216,20 @@ enum LogicChecks {
                                                                  outputRate: $0.1, sourceRate: $0.2) }
         r.check("'eqtl' report survives non-finite / absurd rates and fills (no trap, 0…1e9 frames)",
                 worst.allSatisfy { $0 >= 0 && $0 <= 1_000_000_000 }, "\(worst)")
+
+        // Output IO buffer request (lower latency: the buffer is paid in the ring AND at the device).
+        r.check("IO buffer: asks for the preferred size on a default 512 device",
+                HAL.bufferRequest(current: 512, preferred: 128, range: 15 ... 4_096) == 128)
+        r.check("IO buffer: clamped up to a device's minimum (Bluetooth-style 256…4096)",
+                HAL.bufferRequest(current: 512, preferred: 128, range: 256 ... 4_096) == 256)
+        r.check("IO buffer: nothing set when the minimum is the current size",
+                HAL.bufferRequest(current: 512, preferred: 128, range: 512 ... 4_096) == nil)
+        r.check("IO buffer: never made larger than the device runs now",
+                HAL.bufferRequest(current: 64, preferred: 128, range: 15 ... 4_096) == nil
+                    && HAL.bufferRequest(current: 128, preferred: 128, range: nil) == nil)
+        r.check("IO buffer: no range reported → the preferred size; nonsense preference → nothing",
+                HAL.bufferRequest(current: 512, preferred: 128, range: nil) == 128
+                    && HAL.bufferRequest(current: 512, preferred: 0, range: nil) == nil)
     }
 
     private static func burstGuard(_ r: SelfTestReport) {

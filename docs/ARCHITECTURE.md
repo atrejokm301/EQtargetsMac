@@ -168,6 +168,18 @@ Documented in the security audit; acceptable for a personal-use build.
   is the volume, the others keep their ratio to it.
 - Every teardown of a running output (Off, quit, device switch) fades the device out over
   5 ms first (bounded wait ≤ 50 ms on the main thread), instead of cutting mid-waveform.
+- Latency: before building the AUHAL, the engine asks the real device for a 128-frame IO
+  buffer (`OutputUnit.preferredBufferFrames`), clamped to the device's range, never larger
+  than it runs now. The HAL keeps that size per process, so other apps are unaffected and it
+  ends with the app (measured: an old build on the same device kept 512-frame callbacks
+  while the new one ran 128). Everything downstream (ring target, presentation latency,
+  `'eqtl'`) uses the size read back. Measured on the speakers (`--auhal-selftest`, 30 s):
+  512 → 128, ring target 1298 → 914 frames, ≈ 16 ms less, 0 underruns; whole-process
+  CPU 0.35 → 0.24 s, but about twice the context switches (4× the callbacks). Energy was
+  not measured. Bluetooth (AirPods Max, 2026-11-14): the device rounds the 128 request up
+  to **256** although its range says 15…960; 4 min at 256, 0 underruns. Live in the app,
+  the latency reported to players fell 9306 → 8794 frames (204.5 → 193.9 ms). The
+  AirPods' own 7680 frames (160 ms) is the bulk and has no clean lever.
 - Idle power: AUHAL runs only while the virtual device is running somewhere
   (`kAudioDevicePropertyDeviceIsRunningSomewhere`), with a ~3 s hangover; zero CPU when silent.
 - Volume keys move the virtual device's volume/mute. Mirror them to the real device's hardware

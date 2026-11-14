@@ -223,9 +223,18 @@ final class OutputUnit {
         var message: String { "couldn't \(step) (Core Audio error \(HAL.describe(status)))" }
     }
 
+    /// IO buffer requested on the real device, in device frames (macOS's
+    /// default is 512). This buffer is paid twice — once in the ring's target
+    /// fill and once in the device's presentation latency — so 128 instead of
+    /// 512 removes about 768 frames (≈ 16 ms at 48 kHz). Devices may round it
+    /// up (AirPods run 256: ≈ 11 ms saved). The render work per frame is
+    /// unchanged; only the callback rate goes up.
+    static let preferredBufferFrames = 128
+
     let device: AudioObjectID
     let context: RenderContext
     let sampleRate: Double
+    /// The IO buffer the device actually runs for this process, frames.
     let bufferFrames: Int
     let maxFrames: Int
     /// Device latency + safety offset + stream latency + IO buffer, frames.
@@ -241,7 +250,9 @@ final class OutputUnit {
         guard let rate = HAL.nominalSampleRate(device) else {
             throw Failure(step: "read the device's sample rate", status: kAudioHardwareUnknownPropertyError)
         }
-        let buffer = max(16, HAL.bufferFrameSize(device) ?? 512)
+        // Ask for a small IO buffer first: the ring target and the device's
+        // presentation latency below both grow with it.
+        let buffer = max(16, HAL.requestBufferFrameSize(device, atMost: Self.preferredBufferFrames) ?? 512)
         self.device = device
         sampleRate = rate
         bufferFrames = buffer

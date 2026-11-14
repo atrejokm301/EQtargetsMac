@@ -8,8 +8,9 @@
 //  digitally MUTED, so the device plays exact silence.
 //
 //  It does NOT touch macOS's default output, the virtual device, any volume,
-//  or any device setting — it only opens an output stream for N seconds, as
-//  any player would. What it proves on hardware:
+//  or any shared device setting — it only opens an output stream for N
+//  seconds, as any player would (its IO buffer request, like the app's, is
+//  per process and ends with it). What it proves on hardware:
 //   • AUHAL accepts our configuration and binds the device; input stays OFF
 //     (read back from the unit, and Core Audio reports this process is not
 //     running input — no HFP, no orange dot);
@@ -143,6 +144,16 @@ enum AUHALCheck {
         r.check("AUHAL input stays disabled (read back after initialize)", !unit.inputEnabled)
         r.check("AUHAL bound to the requested device", unit.boundDevice == device.objectID,
                 "bound \(unit.boundDevice.map { "\($0)" } ?? "nil"), wanted \(device.objectID)")
+        // A device may round the request up (AirPods Max: 128 asked, 256 run,
+        // although its range says 15…960). What must hold: when a smaller size
+        // was asked for, the buffer shrank and stayed within [request, before];
+        // when nothing was asked for, it is unchanged. That the size read back
+        // is the one the callback really gets is checked after the run.
+        let requested = HAL.bufferRequest(current: buffer, preferred: OutputUnit.preferredBufferFrames,
+                                          range: HAL.bufferFrameSizeRange(device.objectID))
+        let shrank = requested.map { unit.bufferFrames >= $0 && unit.bufferFrames < buffer } ?? (unit.bufferFrames == buffer)
+        r.check("IO buffer request takes effect (\(buffer) → asked \(requested.map(String.init) ?? "nothing"), range \(HAL.bufferFrameSizeRange(device.objectID).map { "\($0.lowerBound)…\($0.upperBound)" } ?? "unknown"))",
+                shrank, "device runs \(unit.bufferFrames)")
 
         // PropertyListener against the real HAL: our own start/stop toggles
         // the device's IsRunning (for this process) — a harmless trigger.
@@ -214,7 +225,7 @@ enum AUHALCheck {
         r.check("callback runs at the device's pace (calls ≈ duration × rate / buffer, ±15 %)",
                 frames > 0 && abs(Double(calls) - expectedCalls) <= 0.15 * expectedCalls,
                 "\(calls) calls of \(frames) frames in \(elapsed.f(2)) s, expected \(expectedCalls.f(0))")
-        r.check("callback buffer = device IO buffer", frames == buffer, "\(frames) vs \(buffer)")
+        r.check("callback buffer = device IO buffer", frames == unit.bufferFrames, "\(frames) vs \(unit.bufferFrames)")
         r.check("RingReader locks to the real device clock", lockedAt != nil, lockedAt.map { "locked by \($0.f(0)) s" } ?? "status \(final.lock)")
         r.check("zero underruns after lock", lockedAt != nil && final.underruns == underrunsAtLock,
                 "after lock \(final.underruns - underrunsAtLock), total \(final.underruns)")
