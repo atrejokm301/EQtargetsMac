@@ -790,12 +790,15 @@ final class EngineController {
         }
         // Follow macOS unless a pinned device is actually present: a pin
         // whose device is away must not make every Control Center pick bounce.
-        if RoutingPolicy.followsMacDefault(pinnedUID: pinnedUID, devices: outputDevices),
-           let device = DeviceCatalog.describe(def, virtualID: vid), device.uid != currentOutput?.uid {
-            fellBackFrom = nil         // the user chose: no automatic return
+        // A present pin keeps (or puts back) the route on the PINNED device.
+        let follows = RoutingPolicy.followsMacDefault(pinnedUID: pinnedUID, devices: outputDevices)
+        if let device = RoutingPolicy.defaultChangeTarget(picked: DeviceCatalog.describe(def, virtualID: vid),
+                                                          pinnedUID: pinnedUID, currentUID: currentOutput?.uid,
+                                                          devices: outputDevices) {
+            if follows { fellBackFrom = nil }   // the user chose: no automatic return
             route(to: device)          // route() sets the default back to EQtargets Audio
         } else {
-            HAL.setDefaultOutputDevice(vid)   // pinned (and present): keep it, keep the default
+            HAL.setDefaultOutputDevice(vid)   // already where we should be: keep the default
         }
     }
 
@@ -962,15 +965,27 @@ final class EngineController {
     }
 
     /// Tell the driver how much latency we add, so players keep lip sync.
+    ///
+    /// Players apply it only when the HAL announces it, and the driver can only
+    /// have it announced through a configuration change, which briefly stops IO
+    /// on EQtargets Audio. So the figure is right from the first report of a
+    /// route (before the reader has run, the ring target is estimated from the
+    /// writer's last buffer size), and later it is re-sent only when it moved
+    /// by `LatencyMath.reportThresholdSeconds` — never for the few ms the ring
+    /// target moves when another app's buffer size starts the stream.
     private func reportLatency() {
         guard routed, let vid = virtualID, let o = output else { return }
         let rs = o.context.reader.stats()
         let source = rs.sourceSampleRate > 0 ? rs.sourceSampleRate : (HAL.nominalSampleRate(vid) ?? o.sampleRate)
-        let target = rs.targetFillFrames > 0 ? rs.targetFillFrames : 0
+        let writer = o.context.ring.ioBufferFrames
+        let target = rs.targetFillFrames > 0 ? rs.targetFillFrames
+            : RingReader.targetFill(writerFrames: Double(writer > 0 && writer <= 16_384 ? writer : 512),
+                                    outputFramesInSource: Double(o.bufferFrames) * source / o.sampleRate,
+                                    kernelTaps: ResamplerTable.baseTaps)
         let frames = LatencyMath.driverReportFrames(ringTargetFrames: target, chainFrames: chain.latencyFrames,
                                                     deviceFrames: o.presentationLatencyFrames,
                                                     outputRate: o.sampleRate, sourceRate: source)
-        guard lastReportedLatency < 0 || abs(frames - lastReportedLatency) >= 32 else { return }
+        guard LatencyMath.shouldReport(frames, last: lastReportedLatency, sourceRate: source) else { return }
         guard HAL.isSettable(vid, HAL.address(EQT_PROPERTY_CLIENT_LATENCY)) else { return }
         if setClientLatency(frames, on: vid) == noErr { lastReportedLatency = frames }
     }

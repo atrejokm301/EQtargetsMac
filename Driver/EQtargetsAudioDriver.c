@@ -111,7 +111,15 @@ static UInt32                   gIOClientCount    = 0;
 static Float32                  gVolumeScalar     = 1.0f;
 static UInt32                   gMute             = 0;
 static UInt32                   gStreamIsActive   = 1;
-static UInt32                   gClientLatency    = 0;      // frames, from the app via 'eqtl'
+/// Frames from the app via 'eqtl', as APPLIED: what kAudioDevicePropertyLatency
+/// reports. Changed only inside PerformDeviceConfigurationChange — the HAL does
+/// not pass a plain PropertiesChanged for the latency on to running clients
+/// (measured 2026-11-14: the 'eqtl' notice arrived, the latency one never did),
+/// so players kept the latency they read at start until relaunched.
+static UInt32                   gClientLatency    = 0;
+/// The latency most recently ASKED for via 'eqtl' (what 'eqtl' reads back). It
+/// differs from gClientLatency while a configuration change is pending.
+static UInt32                   gRequestedLatency = 0;
 /// The rate most recently ASKED for (set nominal rate / stream format). It
 /// differs from gSampleRate while a configuration change is pending; see
 /// EQT_SetNominalRate.
@@ -315,6 +323,55 @@ static void EQT_RequestRateChangeWork(void *context) {
 static void EQT_RequestRateChange(Float64 rate) {
     dispatch_async_f(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0),
                      (void *)(uintptr_t)(UInt64)rate, EQT_RequestRateChangeWork);
+}
+
+// ---------------------------------------------------------------- latency ('eqtl')
+//
+// A latency change goes through the same Request/Perform handshake as a rate
+// change: that is the change the HAL announces to running clients. The change
+// action is kEQTLatencyActionTag | frames — far above any sample rate, so the
+// two kinds can never be confused. Like rates, the latest request wins.
+
+#define kEQTLatencyActionTag (1ull << 32)
+
+static Boolean EQT_IsLatencyAction(UInt64 action) { return (action >> 32) == 1u; }
+
+static void EQT_NotifyLatencyChangedWork(void *context) {
+    (void)context;
+    const AudioObjectPropertyAddress addrs[] = {
+        { kAudioDevicePropertyLatency, kAudioObjectPropertyScopeOutput, kAudioObjectPropertyElementMain },
+        { EQT_PROPERTY_CLIENT_LATENCY, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMain },
+    };
+    EQT_Notify(kEQTObjectDevice, 2, addrs);
+}
+
+/// Applies the latest requested latency. Returns true if it changed.
+static Boolean EQT_ApplyRequestedLatency(void) {
+    pthread_mutex_lock(&gStateMutex);
+    const Boolean changed = gRequestedLatency != gClientLatency;
+    gClientLatency = gRequestedLatency;
+    pthread_mutex_unlock(&gStateMutex);
+    return changed;
+}
+
+static void EQT_RequestLatencyChangeWork(void *context) {
+    const UInt64 action = kEQTLatencyActionTag | (UInt64)(uintptr_t)context;
+    AudioServerPlugInHostRef host = gHost;
+    const OSStatus err = (host != NULL && host->RequestDeviceConfigurationChange != NULL)
+        ? host->RequestDeviceConfigurationChange(host, kEQTObjectDevice, action, NULL)
+        : kAudioHardwareUnspecifiedError;
+    if (err != kAudioHardwareNoError) {
+        // No handshake: apply it directly, as before. New players still read
+        // the right value; only running ones may miss the change.
+        os_log_error(EQTLog(), "RequestDeviceConfigurationChange(latency %u) failed: %d; applied directly",
+                     (unsigned)(UInt32)action, (int)err);
+        if (EQT_ApplyRequestedLatency()) EQT_NotifyLatencyChangedWork(NULL);
+    }
+}
+
+static void EQT_RequestLatencyChange(UInt32 frames) {
+    dispatch_async_f(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0),
+                     (void *)(uintptr_t)frames, EQT_RequestLatencyChangeWork);
 }
 
 // ---------------------------------------------------------------- ring readers ('eqta')
@@ -594,7 +651,15 @@ static OSStatus EQT_PerformDeviceConfigurationChange(AudioServerPlugInDriverRef 
                                                      UInt64 inChangeAction, void *inChangeInfo) {
     (void)inChangeInfo;
     if (inDriver != gDriverRef || inDeviceObjectID != kEQTObjectDevice) return kAudioHardwareBadObjectError;
-    // The only change we ever request is a sample-rate change; the action is the rate.
+    if (EQT_IsLatencyAction(inChangeAction)) {
+        // Latest request wins (a stale or duplicate Perform is a no-op). No
+        // clock re-anchor and no new timeline: the ring is not affected.
+        if (EQT_ApplyRequestedLatency()) {
+            dispatch_async_f(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), NULL, EQT_NotifyLatencyChangedWork);
+        }
+        return kAudioHardwareNoError;
+    }
+    // Otherwise it is a sample-rate change; the action is the rate.
     if (!EQT_IsSupportedRate((Float64)inChangeAction)) return kAudioHardwareIllegalOperationError;
 
     pthread_mutex_lock(&gStateMutex);
@@ -627,9 +692,13 @@ static OSStatus EQT_AbortDeviceConfigurationChange(AudioServerPlugInDriverRef in
     (void)inChangeInfo;
     if (inDriver != gDriverRef || inDeviceObjectID != kEQTObjectDevice) return kAudioHardwareBadObjectError;
     // The host dropped this request. If it was the latest one, nothing is
-    // pending any more: forget it, so setting that rate again asks again.
+    // pending any more: forget it, so setting that value again asks again.
     pthread_mutex_lock(&gStateMutex);
-    if ((Float64)inChangeAction == gRequestedRate) gRequestedRate = gSampleRate;
+    if (EQT_IsLatencyAction(inChangeAction)) {
+        if ((UInt32)inChangeAction == gRequestedLatency) gRequestedLatency = gClientLatency;
+    } else if ((Float64)inChangeAction == gRequestedRate) {
+        gRequestedRate = gSampleRate;
+    }
     pthread_mutex_unlock(&gStateMutex);
     return kAudioHardwareNoError;
 }
@@ -827,7 +896,7 @@ static OSStatus EQT_GetDeviceProperty(const AudioObjectPropertyAddress *a, UInt3
             if (r->out == NULL) return kAudioHardwareNoError;
             if (r->capacity < sizeof(CFPropertyListRef)) return kAudioHardwareBadPropertySizeError;
             pthread_mutex_lock(&gStateMutex);
-            const SInt32 frames = (SInt32)gClientLatency;
+            const SInt32 frames = (SInt32)gRequestedLatency;   // what was asked for (applied once performed)
             pthread_mutex_unlock(&gStateMutex);
             CFNumberRef number = CFNumberCreate(NULL, kCFNumberSInt32Type, &frames);
             if (number == NULL) return kAudioHardwareUnspecifiedError;
@@ -1091,18 +1160,14 @@ static OSStatus EQT_SetDeviceProperty(pid_t clientPID, const AudioObjectProperty
             if (!isfinite(requested)) return kAudioHardwareIllegalOperationError;
             const UInt32 frames = (UInt32)EQT_Clamp(floor(requested + 0.5), 0.0, (double)EQT_MAX_CLIENT_LATENCY);
 
+            // Compare with the latency last ASKED FOR (see EQT_SetNominalRate):
+            // a quick change back while one is pending must still ask, and the
+            // same value twice must not queue a second IO restart.
             pthread_mutex_lock(&gStateMutex);
-            const Boolean changed = frames != gClientLatency;
-            gClientLatency = frames;
+            const Boolean differs = frames != gRequestedLatency;
+            if (differs) gRequestedLatency = frames;
             pthread_mutex_unlock(&gStateMutex);
-
-            if (changed) {
-                const AudioObjectPropertyAddress changedAddrs[] = {
-                    { EQT_PROPERTY_CLIENT_LATENCY, kAudioObjectPropertyScopeGlobal, kAudioObjectPropertyElementMain },
-                    { kAudioDevicePropertyLatency, kAudioObjectPropertyScopeOutput, kAudioObjectPropertyElementMain },
-                };
-                EQT_Notify(kEQTObjectDevice, 2, changedAddrs);
-            }
+            if (differs) EQT_RequestLatencyChange(frames);
             return kAudioHardwareNoError;
         }
         default:

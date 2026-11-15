@@ -85,7 +85,9 @@ extern "C" {
 /// Optional custom device property (CFNumber, frames) the app may SET on the
 /// virtual device to report the extra latency its pipeline adds (ring target
 /// + output device latency). The driver adds it to kAudioDevicePropertyLatency
-/// so video players can keep lip sync. Declared via
+/// so video players can keep lip sync, applying each change through a device
+/// configuration change (a brief IO restart): the HAL does not pass a plain
+/// latency PropertiesChanged on to running clients. Declared via
 /// kAudioObjectPropertyCustomPropertyInfoList with
 /// kAudioServerPlugInCustomPropertyDataTypeCFPropertyList.
 #define EQT_PROPERTY_CLIENT_LATENCY  0x6571746Cu   /* 'eqtl' */

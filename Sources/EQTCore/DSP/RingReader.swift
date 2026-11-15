@@ -657,11 +657,17 @@ final class RingReader: @unchecked Sendable {
     }
 
     private func updateTarget() {
-        let outSrc = Double(outBufferFrames) * nominalRatio
-        let io = Double(ioFrames)
+        targetFill = Self.targetFill(writerFrames: Double(ioFrames), outputFramesInSource: Double(outBufferFrames) * nominalRatio,
+                                     kernelTaps: kernel.taps)
+    }
+
+    /// The target fill rule (see the header comment), in source frames. Also
+    /// used by the engine to estimate the ring's latency before the reader has
+    /// run, so the latency it reports at route time is already the right one.
+    static func targetFill(writerFrames io: Double, outputFramesInSource outSrc: Double, kernelTaps: Int) -> Double {
         let margin = max(256.0, 0.5 * max(io, outSrc))
-        let t = io + outSrc + Double(kernel.taps / 2) + 2 + margin
-        targetFill = min(max(t, 256), Double(Self.capacity / 4))
+        let t = io + outSrc + Double(kernelTaps / 2) + 2 + margin
+        return min(max(t, 256), Double(capacity / 4))
     }
 
     private func updatePLL(measuredFill: Double, dt: Double) {

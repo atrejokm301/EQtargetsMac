@@ -149,7 +149,11 @@ Documented in the security audit; acceptable for a personal-use build.
   Sound menu, AirPods connected and macOS switched to them), adopt it as the new real output,
   switch AUHAL to it, then set the default back to EQtargets Audio.
 - Follow macOS applies unless a pinned device is actually present (an absent pin never makes
-  Control Center picks bounce back).
+  Control Center picks bounce back). With a present pin, any pick puts the route back on the
+  PINNED device (`RoutingPolicy.defaultChangeTarget`), never "stay where we are": after a
+  fallback whose return was missed, that left the pinned AirPods silent while the speakers
+  played (2026-11-14). Control Center shows a spinner on the picked device because the
+  default goes straight back to EQtargets Audio; that is cosmetic and inherent to the design.
 - Real device disappears → fall back (pinned → last → built-in) without user action, and
   remember it: when that device comes back (DAC power cycle, display audio after sleep, a
   device published late after a coreaudiod restart) route back to it (Follow macOS only).
@@ -191,6 +195,13 @@ Documented in the security audit; acceptable for a personal-use build.
 - Launch recovery: if macOS's default output is EQtargets Audio but the app is powered off (e.g.
   after a crash), restore it to the last real device immediately.
 - Report pipeline latency to the driver via the `'eqtl'` custom property when supported.
+  The driver applies each change through Request/PerformDeviceConfigurationChange,
+  because the HAL never passes a plain latency PropertiesChanged on to running clients
+  (measured 2026-11-14: the `'eqtl'` notice arrived, the latency one never did, so open
+  players kept the latency they read at start — video lagged on AirPods until the player
+  was relaunched). Each change briefly restarts IO on EQtargets Audio, so the engine sends
+  one figure per route (the ring target estimated before the reader runs) and re-sends it
+  only when it moves by ≥ 20 ms (`LatencyMath.reportThresholdSeconds`).
 
 ## 7. Build, test, run
 

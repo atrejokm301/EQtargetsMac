@@ -102,6 +102,21 @@ enum LogicChecks {
         r.check("follow macOS: pinned device ABSENT → follow macOS's pick (AirPods connected at a café)",
                 P.followsMacDefault(pinnedUID: "desk-DAC-at-home", devices: all))
         r.check("follow macOS: a pin on EQtargets Audio itself counts as absent", P.followsMacDefault(pinnedUID: ours.uid, devices: all))
+        // Default-output change (a Control Center pick) → where to play.
+        r.check("pick, no pin: play on the picked device",
+                P.defaultChangeTarget(picked: dac, pinnedUID: nil, currentUID: speakers.uid, devices: all)?.uid == dac.uid)
+        r.check("pick, no pin: the device already playing → stay (nil)",
+                P.defaultChangeTarget(picked: speakers, pinnedUID: nil, currentUID: speakers.uid, devices: all) == nil)
+        r.check("pick, pin present and playing on it: any pick stays on the pin (nil)",
+                P.defaultChangeTarget(picked: speakers, pinnedUID: airpods.uid, currentUID: airpods.uid, devices: all) == nil)
+        r.check("regression: pinned AirPods present, stuck on the speakers, user picks the AirPods → AirPods",
+                P.defaultChangeTarget(picked: airpods, pinnedUID: airpods.uid, currentUID: speakers.uid, devices: all)?.uid == airpods.uid)
+        r.check("regression: pinned AirPods present, stuck on the speakers, any other pick → back to the pin",
+                P.defaultChangeTarget(picked: dac, pinnedUID: airpods.uid, currentUID: speakers.uid, devices: all)?.uid == airpods.uid)
+        r.check("pick, pin absent: follow the pick (no bounce to a device that isn't there)",
+                P.defaultChangeTarget(picked: dac, pinnedUID: "desk-DAC-at-home", currentUID: speakers.uid, devices: all)?.uid == dac.uid)
+        r.check("pick of EQtargets Audio itself is never a target",
+                P.defaultChangeTarget(picked: ours, pinnedUID: nil, currentUID: speakers.uid, devices: all) == nil)
 
         // Return to the device we fell back from (review fix: it was never re-adopted).
         r.check("return: the device we fell back from is back → return to it",
@@ -216,6 +231,22 @@ enum LogicChecks {
                                                                  outputRate: $0.1, sourceRate: $0.2) }
         r.check("'eqtl' report survives non-finite / absurd rates and fills (no trap, 0…1e9 frames)",
                 worst.allSatisfy { $0 >= 0 && $0 <= 1_000_000_000 }, "\(worst)")
+
+        // Latency reports are configuration changes now (an IO restart each): one per route, then only big moves.
+        r.check("latency report: the first one on a route is always sent", LatencyMath.shouldReport(9_000, last: -1, sourceRate: 48_000))
+        r.check("latency report: a move under 20 ms is not re-sent (no IO restart when a stream starts)",
+                !LatencyMath.shouldReport(9_000 + 959, last: 9_000, sourceRate: 48_000)
+                    && !LatencyMath.shouldReport(9_000 - 366, last: 9_000, sourceRate: 48_000))
+        r.check("latency report: a move of 20 ms or more is re-sent (speakers → AirPods, a 4096-frame writer)",
+                LatencyMath.shouldReport(9_000 + 960, last: 9_000, sourceRate: 48_000)
+                    && LatencyMath.shouldReport(2_400, last: 9_000, sourceRate: 48_000))
+        r.check("latency report: the threshold scales with the rate, and survives a nonsense rate",
+                !LatencyMath.shouldReport(9_000 + 3_000, last: 9_000, sourceRate: 192_000)
+                    && LatencyMath.shouldReport(9_000 + 960, last: 9_000, sourceRate: .nan))
+        r.check("ring target estimate = the reader's rule (512/512 → 1298 frames, AirPods 256/256 → 786)",
+                RingReader.targetFill(writerFrames: 512, outputFramesInSource: 512, kernelTaps: ResamplerTable.baseTaps) == 1_298
+                    && RingReader.targetFill(writerFrames: 256, outputFramesInSource: 256, kernelTaps: ResamplerTable.baseTaps) == 786,
+                "\(RingReader.targetFill(writerFrames: 512, outputFramesInSource: 512, kernelTaps: ResamplerTable.baseTaps))")
 
         // Output IO buffer request (lower latency: the buffer is paid in the ring AND at the device).
         r.check("IO buffer: asks for the preferred size on a default 512 device",

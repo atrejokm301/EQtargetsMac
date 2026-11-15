@@ -99,6 +99,24 @@ enum RoutingPolicy {
         return !devices.contains { $0.uid == p && isRoutable($0) }
     }
 
+    /// macOS's default output moved to `picked` (a Control Center / Sound menu
+    /// pick, or AirPods connecting). Where to play now; nil = stay put.
+    /// Follow macOS → the picked device. A present pin → the PINNED device:
+    /// a pick never moves a pinned route, but it must not leave us on some
+    /// other device either. (Bug, 2026-11-14: after a fallback to the speakers
+    /// whose return to the pinned AirPods was missed, every pick — AirPods
+    /// included — kept playing on the speakers: silent headphones.)
+    static func defaultChangeTarget(picked: OutputDevice?, pinnedUID: String?, currentUID: String?,
+                                    devices: [OutputDevice]) -> OutputDevice? {
+        if followsMacDefault(pinnedUID: pinnedUID, devices: devices) {
+            guard let picked, isRoutable(picked), picked.uid != currentUID else { return nil }
+            return picked
+        }
+        guard let pinned = devices.first(where: { $0.uid == pinnedUID && isRoutable($0) }),
+              pinned.uid != currentUID else { return nil }
+        return pinned
+    }
+
     /// After a fallback (the device we played on vanished), the device we fell
     /// back FROM is back: return to it. macOS would, but it can't here: its
     /// default output stays EQtargets Audio throughout. Follow-macOS only — a
@@ -235,6 +253,19 @@ enum LatencyMath {
         let v = max(0, ringTargetFrames) + outSide
         guard v.isFinite else { return 0 }
         return Int(min(v, 1e9).rounded())
+    }
+
+    /// A re-report smaller than this is not worth the IO restart it costs
+    /// (each one is a configuration change); lip sync is not visibly off at
+    /// that size.
+    static let reportThresholdSeconds = 0.020
+
+    /// Whether `frames` (at `sourceRate`) should be sent to the driver, given
+    /// the last value sent (−1 = nothing sent on this route yet).
+    static func shouldReport(_ frames: Int, last: Int, sourceRate: Double) -> Bool {
+        guard last >= 0 else { return true }
+        let rate = sourceRate.isFinite && sourceRate > 0 ? sourceRate : 48_000
+        return Double(abs(frames - last)) >= max(32, reportThresholdSeconds * rate)
     }
 }
 

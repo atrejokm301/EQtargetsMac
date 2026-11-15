@@ -1071,15 +1071,23 @@ static int RunSuite(const char *driverPath) {
         check(GetLatencyPlist(dev) == 0 && U32(dev, kAudioDevicePropertyLatency, kOut) == 0, "initially 0 frames, latency 0");
 
         int mark = NoteMark();
+        int performs = PerformCount();
         check(SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 1234 }) == kAudioHardwareNoError, "set 'eqtl' = 1234");
-        check(GetLatencyPlist(dev) == 1234, "'eqtl' reads back 1234");
-        check(U32(dev, kAudioDevicePropertyLatency, kOut) == 1234, "output latency includes it (0 + 1234)");
+        check(GetLatencyPlist(dev) == 1234, "'eqtl' reads back 1234 at once (the value asked for)");
+        // The HAL drops a plain PropertiesChanged for the latency on its way to
+        // running clients; a configuration change is what it announces.
+        check(WaitPerform(performs, 2.0) && PerformCount() == performs + 1,
+              "...applied through ONE configuration change (%d performed)", PerformCount() - performs);
+        check(U32(dev, kAudioDevicePropertyLatency, kOut) == 1234, "after Perform: output latency includes it (0 + 1234)");
         check(U32(dev, kAudioDevicePropertyLatency, kIn) == 0, "input latency unaffected (0)");
-        check(SawNote(mark, dev, kAudioDevicePropertyLatency, kOut) && SawNote(mark, dev, EQT_PROPERTY_CLIENT_LATENCY, kGlobal),
-              "PropertiesChanged(latency output, 'eqtl')");
+        check(WaitNote(mark, dev, kAudioDevicePropertyLatency, kOut, 2.0) && WaitNote(mark, dev, EQT_PROPERTY_CLIENT_LATENCY, kGlobal, 2.0),
+              "PropertiesChanged(latency output, 'eqtl') after Perform");
+        SleepMs(100);
         mark = NoteMark();
+        performs = PerformCount();
         SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 1234 });
-        check(NoteMark() == mark, "same value -> no notification");
+        SleepMs(200);
+        check(NoteMark() == mark && PerformCount() == performs, "same value -> no request, no notification");
         SetLatencyNumber(dev, kCFNumberFloat64Type, &(Float64){ 100.6 });
         check(GetLatencyPlist(dev) == 101, "fractional 100.6 rounds to 101");
         SetLatencyNumber(dev, kCFNumberFloat64Type, &(Float64){ 1.0e9 });
@@ -1092,7 +1100,9 @@ static int RunSuite(const char *driverPath) {
         check(SetData(dev, EQT_PROPERTY_CLIENT_LATENCY, kGlobal, 4, &(UInt32){ 480 }) == kAudioHardwareBadPropertySizeError,
               "raw UInt32 (wrong size) rejected");
         SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 480 });
-        check(U32(dev, kAudioDevicePropertyLatency, kOut) == 480, "left at 480 frames");
+        const uint64_t t0 = mach_absolute_time();
+        while (U32(dev, kAudioDevicePropertyLatency, kOut) != 480 && SecondsSince(t0) < 2.0) SleepMs(5);
+        check(U32(dev, kAudioDevicePropertyLatency, kOut) == 480, "left at 480 frames (after Perform)");
     }
 
     // ------------------------------------------------------------------ 'eqta'
@@ -1460,6 +1470,49 @@ static int RunSuite(const char *driverPath) {
         for (int i = 0; i < n; i++) (*gDrv)->PerformDeviceConfigurationChange(gDrv, dev, queued[i], NULL);
         check(n == 1 && F64(dev, kAudioDevicePropertyNominalSampleRate, kGlobal) == 44100.0,
               "setting 44.1 kHz again after the abort asks again and applies (%d request)", n);
+
+        section("latency change: a host that defers Perform (latest request wins)");
+        const UInt32 latBefore = U32(dev, kAudioDevicePropertyLatency, kOut);
+        SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 2000 });
+        SleepMs(300);
+        n = TakeDeferred(queued);
+        check(n == 1 && (queued[0] >> 32) == 1u && (UInt32)queued[0] == 2000u,
+              "set 'eqtl' = 2000 -> %d request, action tagged as latency (never a rate)", n);
+        check(U32(dev, kAudioDevicePropertyLatency, kOut) == latBefore && GetLatencyPlist(dev) == 2000,
+              "...pending: latency still %u, 'eqtl' already reads 2000", latBefore);
+        g = EQTRingLoadGeneration(gRO);
+        const Float64 rateBefore = F64(dev, kAudioDevicePropertyNominalSampleRate, kGlobal);
+        mark = NoteMark();
+        (*gDrv)->PerformDeviceConfigurationChange(gDrv, dev, queued[0], NULL);
+        check(U32(dev, kAudioDevicePropertyLatency, kOut) == 2000, "...performed: latency 2000");
+        check(EQTRingLoadGeneration(gRO) == g && F64(dev, kAudioDevicePropertyNominalSampleRate, kGlobal) == rateBefore,
+              "...and the ring timeline and the rate are untouched");
+        check(WaitNote(mark, dev, kAudioDevicePropertyLatency, kOut, 2.0), "...PropertiesChanged(latency output)");
+
+        SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 3000 });
+        SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 4000 });
+        SleepMs(300);
+        n = TakeDeferred(queued);
+        for (int i = n - 1; i >= 0; i--) (*gDrv)->PerformDeviceConfigurationChange(gDrv, dev, queued[i], NULL);
+        check(n == 2 && U32(dev, kAudioDevicePropertyLatency, kOut) == 4000,
+              "3000 then 4000, performed in reverse order: ends at 4000 (the last set)");
+
+        SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 5000 });
+        SleepMs(300);
+        n = TakeDeferred(queued);
+        check(n == 1 && (*gDrv)->AbortDeviceConfigurationChange(gDrv, dev, queued[0], NULL) == kAudioHardwareNoError
+                  && U32(dev, kAudioDevicePropertyLatency, kOut) == 4000,
+              "request for 5000 aborted by the host: latency stays 4000");
+        SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 5000 });
+        SleepMs(300);
+        n = TakeDeferred(queued);
+        for (int i = 0; i < n; i++) (*gDrv)->PerformDeviceConfigurationChange(gDrv, dev, queued[i], NULL);
+        check(n == 1 && U32(dev, kAudioDevicePropertyLatency, kOut) == 5000,
+              "setting 5000 again after the abort asks again and applies (%d request)", n);
+        SetLatencyNumber(dev, kCFNumberSInt32Type, &(SInt32){ 480 });
+        SleepMs(300);
+        n = TakeDeferred(queued);
+        for (int i = 0; i < n; i++) (*gDrv)->PerformDeviceConfigurationChange(gDrv, dev, queued[i], NULL);
 
         pthread_mutex_lock(&gHostMutex);
         gDeferPerform = false;
