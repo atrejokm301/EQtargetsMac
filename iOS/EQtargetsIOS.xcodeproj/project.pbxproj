@@ -1,0 +1,1612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0336006E1AEB46860D69C07F /* ImportPreviewSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D399F399151D5A929D353C9 /* ImportPreviewSheet.swift */; };
+		03FA7D2836E9C4BEF3F31169 /* GraphGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88B9E059B78E37BC9F9BA0C /* GraphGeometry.swift */; };
+		054B728255AD9BA932F4576E /* OutputCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FC708CE92127F1C2014D97 /* OutputCardContent.swift */; };
+		0A4EE181840ADCBAB4EB4EDD /* ProcessingChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F3BB5E76EA5D9CDA98D35 /* ProcessingChain.swift */; };
+		0C044594848545F56158D989 /* LinkJournalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FD25E370F195896A4DC10BB /* LinkJournalTests.swift */; };
+		0F7DA2F3C31B38C99B04D710 /* OutputCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B15134BD2FF8CD65FB583 /* OutputCard.swift */; };
+		10253A7A4A72FBB504369541 /* ActivityMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036E0F8B7B61F409AA20FA0 /* ActivityMeter.swift */; };
+		1045D9FDC967FC30253E4EA6 /* ResponseMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4CD5C4FED433C617F0C1C /* ResponseMath.swift */; };
+		127B0C070AB7E7AF0E0B7CB5 /* OutputCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FC708CE92127F1C2014D97 /* OutputCardContent.swift */; };
+		12DB9E579B27BC9DDC5942ED /* NumberEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF710F2FC531AC31C3C09B4 /* NumberEntry.swift */; };
+		130A261A0CE7B0AACE126D6F /* LinkRenderContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5439D59A6C3AE02EE03A52 /* LinkRenderContext.swift */; };
+		13A4F57FF7C1095E729E406B /* LinkJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DCBE7739C61EAD10AE4F34 /* LinkJournal.swift */; };
+		156B43C5D19863100DDB39D3 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58105BAFE20721576CC1B09 /* PerformanceTests.swift */; };
+		16687F9B70DEAE4752082D69 /* GraphOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B4647494B06B98EF3E8D /* GraphOverlay.swift */; };
+		168C6F171B4A030EF1F8BE0C /* EQModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A2E14D97F218ACDB5541 /* EQModels.swift */; };
+		1723E4AE0C4B0B9118A9A075 /* ResponseGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DDD849A2F564A49587337D /* ResponseGraphView.swift */; };
+		18605BF754D3E163BE994823 /* LinkAuthTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE2CC09F326D2A02A3441D5 /* LinkAuthTests.swift */; };
+		1968F17E33A69165BC701BE3 /* EQModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A2E14D97F218ACDB5541 /* EQModels.swift */; };
+		19903B8D4C00A4F5971549D6 /* NumberEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF710F2FC531AC31C3C09B4 /* NumberEntry.swift */; };
+		1C28B60E7090C0F2533C0690 /* EQControlIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9957F2594BCB3A78379F82 /* EQControlIntents.swift */; };
+		1C78E5E573C93F52B48FB37E /* ResponseGraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DDD849A2F564A49587337D /* ResponseGraphView.swift */; };
+		1F53D7255B5AEA5E6FB8EB3F /* PEQProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA3AF7F74BBF74A16F9008 /* PEQProcessor.swift */; };
+		1FE36508F624B02290577939 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA3A6C88C39AD5D4447543 /* AVFoundation.framework */; };
+		205C59C243383778E95AD876 /* EQTDeviceDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FBE22A45D32C917349F86A /* EQTDeviceDriver.m */; };
+		20643C1AB9C1F1CD2B99F9E4 /* EngineDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58879E4B40B6005D862D8A2D /* EngineDisplay.swift */; };
+		20F32E35A46B7EA34F70E6CF /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD8CCAFBA941B5298893AF /* Theme.swift */; };
+		23952E4B2014D386DE1AED47 /* EQFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387C65702D88B3262F1FD1C /* EQFormat.swift */; };
+		244FACFD283D57A2CBDA9462 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF463A826216367B0372B039 /* CoreAudio.framework */; };
+		2492BB8654C5DED48BCC86C0 /* MeterBallistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46FFBC89F39617AE96B5CB /* MeterBallistics.swift */; };
+		24C58B8E5196F26841EA9FCF /* OutputDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEAD644C190A87B8A19CA4 /* OutputDevice.swift */; };
+		26C37235EF9D1764F5D6B99B /* EQControlIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9957F2594BCB3A78379F82 /* EQControlIntents.swift */; };
+		294525E86C116E80E8F77D7A /* PresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93276830D078CBC64F44E9 /* PresetStore.swift */; };
+		29A504C40BD33192BEDED824 /* LinkSocketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848E42F25104E427BAD35FD2 /* LinkSocketTests.swift */; };
+		2CEC70DB79D298EB699FFCAA /* AutoEQImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E9D514AD99AF1F8C65B4F /* AutoEQImport.swift */; };
+		2CFCBEF1B4F0FECE784FC852 /* TuningBindingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D18E69773FC711E49F29E7 /* TuningBindingStore.swift */; };
+		2D974350A3A3129F47DBDFC7 /* OutputCardContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FC708CE92127F1C2014D97 /* OutputCardContent.swift */; };
+		2FC5C66A21E6B585F9E15E5B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FAA95E81BA4972B2E40D9 /* MainView.swift */; };
+		3002E26104FED0861A7472BE /* LimiterProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB98EC2D96997E5B93D25FA /* LimiterProcessor.swift */; };
+		32D3B77564586AE38436B5A7 /* MediaDevice.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ED3F457CB8A817C1FA35368 /* MediaDevice.framework */; };
+		33A8DF5CBAF2CB4C944E77C4 /* NumberEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6FF710F2FC531AC31C3C09B4 /* NumberEntry.swift */; };
+		3400882743068E8B20ACFB47 /* PEQProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71EEF3EEC04A54D4A0134951 /* PEQProcessorTests.swift */; };
+		3453DE5CFCA824A864ABD953 /* MeterHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3AD52475B68AC1A08C274 /* MeterHub.swift */; };
+		36A21E5DBAC7B9A163E3BDB3 /* EQControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775221EF7E031FE29CC43FE8 /* EQControlState.swift */; };
+		36F37B04DD403C489B6C3BEF /* DriverTestStubs.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D4BB2212020BEF9F504C46 /* DriverTestStubs.m */; };
+		3729D7C4B09289BB15F0C113 /* BandEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9160A099C487F9B899E455D /* BandEditor.swift */; };
+		386ED0EA711BA8898BA65D72 /* ResponseMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4CD5C4FED433C617F0C1C /* ResponseMath.swift */; };
+		3A350738932EBA24CC8C4EBE /* ImportFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FDDE01A131C9EACC21B434 /* ImportFileReader.swift */; };
+		3AE3B253493075E16F52BD78 /* LayerCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58300BB106CE93B4DBBD47AB /* LayerCards.swift */; };
+		3D4A50A28D9FF46B84BC6BB8 /* LinkJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DCBE7739C61EAD10AE4F34 /* LinkJournal.swift */; };
+		3E3B4E3F8752806B429DF6AE /* Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A903984BE0E0DA801F2A39FA /* Network.framework */; };
+		3F6D24010744F7B5C9B73F08 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AE3F8DD93B8B31A3FFB08 /* SettingsView.swift */; };
+		3F8F04C13CB7DFE05414C6F1 /* ResponseMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86C4CD5C4FED433C617F0C1C /* ResponseMath.swift */; };
+		412DA1A047D5B8B59F5D4A47 /* LimiterProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB98EC2D96997E5B93D25FA /* LimiterProcessor.swift */; };
+		41AC019044E55BF5C7F3F9E0 /* LinkClockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37DAF4759A30D76FFC75E899 /* LinkClockTests.swift */; };
+		4212991E8A0D73B88F937313 /* GraphTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1503E84272B00BC458156B88 /* GraphTouch.swift */; };
+		448D45A9590E92C51A3295D8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA3A6C88C39AD5D4447543 /* AVFoundation.framework */; };
+		456BC959F00C6B585D003008 /* LinkEngineRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0180E991FCD0C5C49E2D96A5 /* LinkEngineRules.swift */; };
+		46A9C1965CD7FA0FB0E92005 /* RTSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C3B998AF0D97C9263CB6A /* RTSupport.swift */; };
+		47108CD3623854B0CFFE983E /* MeterBallistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46FFBC89F39617AE96B5CB /* MeterBallistics.swift */; };
+		488EF07D5C776B6E946174FB /* TransientPunchProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DA56C1BBF42CEE6714596 /* TransientPunchProcessor.swift */; };
+		492E5EEA6AA824B783D29642 /* LimiterDSPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C99769E885B2062BD04500C5 /* LimiterDSPTests.swift */; };
+		49F489E3DE61B6687424D018 /* EQFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387C65702D88B3262F1FD1C /* EQFormat.swift */; };
+		4B2B791178B6EB156DEDDD42 /* BassProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E28CEFDA504B67947E45C6D /* BassProcessor.swift */; };
+		4BFE972B102271DB80BD0A25 /* PEQProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA3AF7F74BBF74A16F9008 /* PEQProcessor.swift */; };
+		4D41B64CD7E783F3F8D774A6 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93D4D5F14AECCF598F6A0FF /* SwiftUI.framework */; };
+		4DC9918D6A2EAAAE5E568E83 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036E4BB2ABDC4FF5692C3021 /* Header.swift */; };
+		5101CDF0E8625A4C064FDF39 /* DeviceRuleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D244C96A0ED65478A8F4B178 /* DeviceRuleTests.swift */; };
+		53BFC0AFB19E5085D0D13EDF /* LinkKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95A7BA48B4FF9E847D5269 /* LinkKey.swift */; };
+		53FB5A7D49DAF1E0D2EF06E9 /* LinkEngineRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0180E991FCD0C5C49E2D96A5 /* LinkEngineRules.swift */; };
+		542B56F3AF1D83982CAE869F /* TransientPunchProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DA56C1BBF42CEE6714596 /* TransientPunchProcessor.swift */; };
+		545A1526816C400C711F68B0 /* EQControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775221EF7E031FE29CC43FE8 /* EQControlState.swift */; };
+		54F90AC46A6EB30018014786 /* DriftResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C487A31BF46A400E5EDDB280 /* DriftResampler.swift */; };
+		55DF7ABF691EA13942122F28 /* RateLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C6F54063399B4744EEA08 /* RateLimit.swift */; };
+		565A1DCC62E239D6AF60C90D /* ImportPreviewSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D399F399151D5A929D353C9 /* ImportPreviewSheet.swift */; };
+		56803B4B220998B248259881 /* TuningBindingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D18E69773FC711E49F29E7 /* TuningBindingStore.swift */; };
+		59E1A5AE289A69695F2A423D /* RateLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C6F54063399B4744EEA08 /* RateLimit.swift */; };
+		5A34EAC7D52333D07455CEEE /* EQTLink.c in Sources */ = {isa = PBXBuildFile; fileRef = BDF4526E615A29263E832559 /* EQTLink.c */; };
+		5AC56C3C01C53C859A55D6DF /* ProcessingChainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA9EC3AD5F0B0ABDDA5E52B /* ProcessingChainTests.swift */; };
+		5C0F3126A4C702675E7C8B96 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 036E4BB2ABDC4FF5692C3021 /* Header.swift */; };
+		5CBF44015C93A90D9D47FEA6 /* PEQProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EEA3AF7F74BBF74A16F9008 /* PEQProcessor.swift */; };
+		5CDF3DC76D72F7FE1703D52C /* GraphCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF7892D57108B9B0F2AD2 /* GraphCanvas.swift */; };
+		5CE128AC01E843E2E42B5AE8 /* LinkKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95A7BA48B4FF9E847D5269 /* LinkKey.swift */; };
+		5D502A4AFCCAA1097414F2F4 /* GraphGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88B9E059B78E37BC9F9BA0C /* GraphGeometry.swift */; };
+		5D57C7F96FD6C0B9C3FF5DD5 /* RingReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F0D03EAB83EAE8EBCA9DD1 /* RingReader.swift */; };
+		5F374EA75C30E1E681C1FF5E /* TestFixtures.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2047240700340975E9A6934 /* TestFixtures.swift */; };
+		67F2A7C3C8FAE71EA5C3C29A /* DriftResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C487A31BF46A400E5EDDB280 /* DriftResampler.swift */; };
+		6C1E98FA3E5A553DE8866122 /* AutoEQParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DA46E84E9C313BA83DA298 /* AutoEQParserTests.swift */; };
+		6CC4B3B36C132FCCDC11FE3C /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1614CA8D63BE124493661452 /* AppIntents.framework */; };
+		6DD49DB4715E1D976BC2CF62 /* RTSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C3B998AF0D97C9263CB6A /* RTSupport.swift */; };
+		71CFB4D09602E01C5F23BDA8 /* EQtargetsIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B52F0FC195F8A7CB0DA009 /* EQtargetsIOSApp.swift */; };
+		72BF7556E522F8B168F33246 /* EQFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = E387C65702D88B3262F1FD1C /* EQFormat.swift */; };
+		79865E5D796874BC4FB24B4B /* StatusChips.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D98FFE94EDBA51F4142955 /* StatusChips.swift */; };
+		7BF74A8D679E3BCFBCBEC1F3 /* OutputCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963B15134BD2FF8CD65FB583 /* OutputCard.swift */; };
+		7D6B745B095D00B493831DF7 /* LinkReservePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7DF635429C45DEA081780 /* LinkReservePolicy.swift */; };
+		7DB46D2B2BCD0F2AAEA23C2E /* LinkEngineRulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B027F0D1E92E48F7FF366186 /* LinkEngineRulesTests.swift */; };
+		7F0EDD38E9830BE02B084F22 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DFD8CCAFBA941B5298893AF /* Theme.swift */; };
+		7F619D774002B4FB5AA54B0C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D32AE3F8DD93B8B31A3FFB08 /* SettingsView.swift */; };
+		81D4FD8CF171D6A107FD273D /* KeepAwakeHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B454EB25C943DA86D49F9F18 /* KeepAwakeHolder.swift */; };
+		81E3D7A50B39137B220F90EB /* EngineDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58879E4B40B6005D862D8A2D /* EngineDisplay.swift */; };
+		82F887E8EAE0929B01553E99 /* AppModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F1E1D3B3279EF179766FFD7 /* AppModelTests.swift */; };
+		8626FC8D7CEC2F4D5DE43AA4 /* TuningBindingStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D18E69773FC711E49F29E7 /* TuningBindingStore.swift */; };
+		867901A796600B274A85F801 /* ImportFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FDDE01A131C9EACC21B434 /* ImportFileReader.swift */; };
+		88E331A43D6D9A8DECEF1CB6 /* LinkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD62E2B605983BCA3C03C82 /* LinkEngine.swift */; };
+		8A0B83A6FDE966FFE8CDCA77 /* LinkRenderContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5439D59A6C3AE02EE03A52 /* LinkRenderContext.swift */; };
+		8A1073A669C6DE5216F5A4B6 /* RingReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D445B0A2C2786B7D044C0A1 /* RingReaderTests.swift */; };
+		8A5D892CDC66774B52E55577 /* ControlCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEADDBBA158C6BBD02CB5CC5 /* ControlCenterTests.swift */; };
+		8C147998A0314DA39069A3C8 /* BassProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E28CEFDA504B67947E45C6D /* BassProcessor.swift */; };
+		8C52B79A03B8FE5E04CFE823 /* MeterHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3AD52475B68AC1A08C274 /* MeterHub.swift */; };
+		8CFF58A1867F74E5A47D8702 /* EngineDriving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9123566CA64758804F80B97E /* EngineDriving.swift */; };
+		8EE5649C56F00FDAE5E207D2 /* AppModel+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B87D0DB6155CC19BA08CE5 /* AppModel+Actions.swift */; };
+		8FB6DA6CA13FC36DECCDFFF7 /* HeadphoneRemovalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3434C7C97807FD5FE548A5 /* HeadphoneRemovalTests.swift */; };
+		90262F795EACC2EA2287C825 /* TransientPunchProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8DA56C1BBF42CEE6714596 /* TransientPunchProcessor.swift */; };
+		92D17E98FC2ECDC6E4FAAAF2 /* EQtargetsExtension.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 1CB2C1553E6EE0D66508B544 /* EQtargetsExtension.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		94B0219EA378193F781C1AA6 /* EQModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E0A2E14D97F218ACDB5541 /* EQModels.swift */; };
+		9543BDACB300CD9EABEFC6E2 /* LinkReservePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7DF635429C45DEA081780 /* LinkReservePolicy.swift */; };
+		97762F1D911E503BF02F206A /* EQControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775221EF7E031FE29CC43FE8 /* EQControlState.swift */; };
+		98F3ACF3F197DDD80E156F1D /* LinkTestSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DBE02DFC403194F61E6F8C /* LinkTestSupport.swift */; };
+		9A81F46AF1049079AAAD1170 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F33613AE67589C7291711B0D /* AudioToolbox.framework */; };
+		9A9C7172F0F390DF321F42F4 /* EQTMediaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F49843C73FC72B39FF3B9D6 /* EQTMediaExtension.swift */; };
+		9B2068FD6EFE3A03477981D2 /* RTSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C3B998AF0D97C9263CB6A /* RTSupport.swift */; };
+		9DFDE65CA4BE47C62E8E2146 /* OutputDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEAD644C190A87B8A19CA4 /* OutputDevice.swift */; };
+		A060B31187DD34A576D73347 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A428E541C858AF62A5E8C34 /* Components.swift */; };
+		A06D4FD04FE0129CED9F899B /* KeepAwakeHolderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05E6E8AC96FDA17904C9D3F8 /* KeepAwakeHolderTests.swift */; };
+		A2823A9D35CE711E4C3A1158 /* GraphCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EFF7892D57108B9B0F2AD2 /* GraphCanvas.swift */; };
+		A3893741C926487AB78473FC /* TransientPunchDSPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38F77BECC5AA0F39DE4FD1F /* TransientPunchDSPTests.swift */; };
+		A412BDA96CB6A9D37EAB3E24 /* KeepAwakeHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B454EB25C943DA86D49F9F18 /* KeepAwakeHolder.swift */; };
+		A52684EE39FB95E4B3C03A01 /* EQControlIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9957F2594BCB3A78379F82 /* EQControlIntents.swift */; };
+		A537B410E31C7D4F029F23DD /* EQControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0D97E14E45DF753DEFBA13 /* EQControls.swift */; };
+		A5D2870A5D00F0A23D645843 /* ProcessingChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F3BB5E76EA5D9CDA98D35 /* ProcessingChain.swift */; };
+		A5EE2F47E80AAA6AD3E58AFC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F2EE02CC612217B424F880 /* Assets.xcassets */; };
+		A6C83EF3FB88DF486E741B99 /* DebugLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC67B36D7EFC301B0E596C /* DebugLaunch.swift */; };
+		AA83416378EC30DF13292A36 /* KeepAwakeHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = B454EB25C943DA86D49F9F18 /* KeepAwakeHolder.swift */; };
+		AC79C32672824AD879B697A3 /* BassProcessorDSPTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2208EA3E275272E75669D35E /* BassProcessorDSPTests.swift */; };
+		AD31691E13B3EAD735E1CAA4 /* DebugLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFC67B36D7EFC301B0E596C /* DebugLaunch.swift */; };
+		AD838D4872C41178EE169F11 /* OutputDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEEEAD644C190A87B8A19CA4 /* OutputDevice.swift */; };
+		B0815603344F17282C83B879 /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556C1C1FA3144A039AC1237 /* BottomBar.swift */; };
+		B31F4CAB46EDCCF85E1FFD01 /* StatusChips.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D98FFE94EDBA51F4142955 /* StatusChips.swift */; };
+		B3B587FAEF006B57CC5B696E /* BottomBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556C1C1FA3144A039AC1237 /* BottomBar.swift */; };
+		B43BE5AD9D9DFDA56CD55D3C /* LinkJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62DCBE7739C61EAD10AE4F34 /* LinkJournal.swift */; };
+		B556A2602852831BBFFEADDE /* AutoEQImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E9D514AD99AF1F8C65B4F /* AutoEQImport.swift */; };
+		B56BB2CF6D65773953F05754 /* BassStylePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BE301D1D45A7490534FB1E /* BassStylePanel.swift */; };
+		B5EFE095674A166F3123E6E9 /* GraphGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = E88B9E059B78E37BC9F9BA0C /* GraphGeometry.swift */; };
+		B6E323789230967942ECC118 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58F2EE02CC612217B424F880 /* Assets.xcassets */; };
+		BA5FEFB5A5C0D0DFF5450129 /* DemoFeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0C44BF31E881646C6BF7B /* DemoFeeder.swift */; };
+		BA70D1B23B0AC734243F700D /* BandEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9160A099C487F9B899E455D /* BandEditor.swift */; };
+		BAB2C834FCB294B863EB808A /* SmokeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E23A1FBDF8555F0D36A11ABC /* SmokeTests.swift */; };
+		BD86C7FC85EA5267BF5CD34B /* AppModel+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B87D0DB6155CC19BA08CE5 /* AppModel+Actions.swift */; };
+		BF5C89D11915074629BFC392 /* PresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93276830D078CBC64F44E9 /* PresetStore.swift */; };
+		C0E920702CEBC7A3A7B67ECD /* RateLimit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 517C6F54063399B4744EEA08 /* RateLimit.swift */; };
+		C0F19506D9567914577E6D52 /* MeterHub.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B3AD52475B68AC1A08C274 /* MeterHub.swift */; };
+		C2979B2BBBD7DBC4D04553F0 /* ActivityMeter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0036E0F8B7B61F409AA20FA0 /* ActivityMeter.swift */; };
+		C3E7A0BB4E5CC6AB262BE08B /* LinkCodecTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3031DC952EF0AC9F289EA3E /* LinkCodecTests.swift */; };
+		C7DF0063807CEDB9B134F9B2 /* EngineDriving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9123566CA64758804F80B97E /* EngineDriving.swift */; };
+		C873D4C96AF955F147CCF25F /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B514587FC96E3FE6348B63 /* AppModel.swift */; };
+		C890A4D88B1AA063E070AFEC /* RingReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F0D03EAB83EAE8EBCA9DD1 /* RingReader.swift */; };
+		CD3BAA6B937006B8BDA52BBC /* PresetStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA93276830D078CBC64F44E9 /* PresetStore.swift */; };
+		CDE2A8E57A8EBF717599BBDC /* EQtargetsIOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00B52F0FC195F8A7CB0DA009 /* EQtargetsIOSApp.swift */; };
+		CE168CDD0727B3E75E4C7D16 /* EQTLink.c in Sources */ = {isa = PBXBuildFile; fileRef = BDF4526E615A29263E832559 /* EQTLink.c */; };
+		CEC02979FF6A34D75C53D94A /* LinkKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95A7BA48B4FF9E847D5269 /* LinkKey.swift */; };
+		CF262EBCC78FACF75929B181 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04BC74498B15B6E000097C6 /* WidgetKit.framework */; };
+		CF664E2FDFF54FA4773AC815 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B514587FC96E3FE6348B63 /* AppModel.swift */; };
+		CFE2098274AE94757611C9DD /* ProcessingChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D5F3BB5E76EA5D9CDA98D35 /* ProcessingChain.swift */; };
+		D066F32FE04C9C2D2791F5A1 /* ExtensionFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10E9EFDD2A6E0D7D353D20B0 /* ExtensionFoundation.framework */; };
+		D0BB92620CF43067793420C3 /* RingReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F0D03EAB83EAE8EBCA9DD1 /* RingReader.swift */; };
+		D1BE9BDE7EB36F29B2222F23 /* DriftResamplerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C98A3F69DB3594CFA7058C /* DriftResamplerTests.swift */; };
+		D21D1C15D3562A7907CEEDD7 /* LinkReservePolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A7DF635429C45DEA081780 /* LinkReservePolicy.swift */; };
+		D2B2256F78C7FB0D2E722951 /* EQTLink.c in Sources */ = {isa = PBXBuildFile; fileRef = BDF4526E615A29263E832559 /* EQTLink.c */; };
+		D37AA03BB0F9832766334257 /* AutoEQImport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C4E9D514AD99AF1F8C65B4F /* AutoEQImport.swift */; };
+		D39ECEA7894D35F65B043056 /* GraphTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1503E84272B00BC458156B88 /* GraphTouch.swift */; };
+		D46B237CB072684F63ACDE18 /* LinkKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B95A7BA48B4FF9E847D5269 /* LinkKey.swift */; };
+		D4917892801D17C442BE706D /* EngineDriving.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9123566CA64758804F80B97E /* EngineDriving.swift */; };
+		D5F57BC7DE70CF8E59E82312 /* BassProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E28CEFDA504B67947E45C6D /* BassProcessor.swift */; };
+		D87C7D15266C6822CD83F9AB /* LinkEngineRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0180E991FCD0C5C49E2D96A5 /* LinkEngineRules.swift */; };
+		D8D5B3045651040ACFB1ACF7 /* MeterBallistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A46FFBC89F39617AE96B5CB /* MeterBallistics.swift */; };
+		DB12F6FE8DF987F63F65ABC2 /* AppModel+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B87D0DB6155CC19BA08CE5 /* AppModel+Actions.swift */; };
+		DC28CCBE77B037AD89BA0D52 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91FAA95E81BA4972B2E40D9 /* MainView.swift */; };
+		DCAEEAE57FAF289036ED4425 /* EngineDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58879E4B40B6005D862D8A2D /* EngineDisplay.swift */; };
+		DF07925F20B027F31D72FC97 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B514587FC96E3FE6348B63 /* AppModel.swift */; };
+		DFEBB0E39D1E7F79CD6E1345 /* StatusChips.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3D98FFE94EDBA51F4142955 /* StatusChips.swift */; };
+		E237D058E633B9EB4B3F81A0 /* LimiterProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB98EC2D96997E5B93D25FA /* LimiterProcessor.swift */; };
+		E24A41E8F5B7FF69E52F7125 /* EQtargetsControls.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 13B17829AF8D39BAD2B3F503 /* EQtargetsControls.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E2856CEC564B946F9866C447 /* LayerCards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58300BB106CE93B4DBBD47AB /* LayerCards.swift */; };
+		E4562E762189F55B04557F4C /* EQControlState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775221EF7E031FE29CC43FE8 /* EQControlState.swift */; };
+		E5D16F217CBBC4CE0D09121E /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF463A826216367B0372B039 /* CoreAudio.framework */; };
+		E6C7F7F0EE56A32643C04261 /* EQTDeviceDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FBE22A45D32C917349F86A /* EQTDeviceDriver.m */; };
+		EA0BE2D87DE61858E54AC28D /* EQTLink.c in Sources */ = {isa = PBXBuildFile; fileRef = BDF4526E615A29263E832559 /* EQTLink.c */; };
+		ED91FED3EC0187A6D6624F42 /* DriverContractTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10778AFC45CC19BBD36FF6AE /* DriverContractTests.swift */; };
+		EDE5041643605B65788C8CE1 /* EQControlIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9957F2594BCB3A78379F82 /* EQControlIntents.swift */; };
+		F2455BD052240BB565F25314 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64DA3A6C88C39AD5D4447543 /* AVFoundation.framework */; };
+		F4BCCBA10B3228A617960300 /* DemoFeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4F0C44BF31E881646C6BF7B /* DemoFeeder.swift */; };
+		F5EC6791BC0DD1F43833BDA5 /* GraphOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F58B4647494B06B98EF3E8D /* GraphOverlay.swift */; };
+		F6693587D0FEF82B32A3DC25 /* BassStylePanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BE301D1D45A7490534FB1E /* BassStylePanel.swift */; };
+		FAA2ACE2B4AABD022B2B2C92 /* LinkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCD62E2B605983BCA3C03C82 /* LinkEngine.swift */; };
+		FB203505D201A485E3711BED /* ImportFileReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32FDDE01A131C9EACC21B434 /* ImportFileReader.swift */; };
+		FD6AADB02B16745C06C5BFD8 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A428E541C858AF62A5E8C34 /* Components.swift */; };
+		FE8FD5557453E9AA17016317 /* DriftResampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = C487A31BF46A400E5EDDB280 /* DriftResampler.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CE499B5F7617662779D8028D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73064794B4F8002E862014A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01E294C1E02F58BFD0A7A923;
+			remoteInfo = EQtargetsExtension;
+		};
+		D89E9BF59AD7F99531000F22 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 73064794B4F8002E862014A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 466C1A35F570D81F02774997;
+			remoteInfo = EQtargetsControls;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3F3DF30187AA9BF7291175CD /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				92D17E98FC2ECDC6E4FAAAF2 /* EQtargetsExtension.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A94D9C9BFDD927E03D301E1 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				E24A41E8F5B7FF69E52F7125 /* EQtargetsControls.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0036E0F8B7B61F409AA20FA0 /* ActivityMeter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityMeter.swift; sourceTree = "<group>"; };
+		00B52F0FC195F8A7CB0DA009 /* EQtargetsIOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQtargetsIOSApp.swift; sourceTree = "<group>"; };
+		017C3B998AF0D97C9263CB6A /* RTSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTSupport.swift; sourceTree = "<group>"; };
+		0180E991FCD0C5C49E2D96A5 /* LinkEngineRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkEngineRules.swift; sourceTree = "<group>"; };
+		01FC708CE92127F1C2014D97 /* OutputCardContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputCardContent.swift; sourceTree = "<group>"; };
+		036E4BB2ABDC4FF5692C3021 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		05E6E8AC96FDA17904C9D3F8 /* KeepAwakeHolderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeHolderTests.swift; sourceTree = "<group>"; };
+		0D5439D59A6C3AE02EE03A52 /* LinkRenderContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkRenderContext.swift; sourceTree = "<group>"; };
+		10778AFC45CC19BBD36FF6AE /* DriverContractTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverContractTests.swift; sourceTree = "<group>"; };
+		10E9EFDD2A6E0D7D353D20B0 /* ExtensionFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExtensionFoundation.framework; path = System/Library/Frameworks/ExtensionFoundation.framework; sourceTree = SDKROOT; };
+		13B17829AF8D39BAD2B3F503 /* EQtargetsControls.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = EQtargetsControls.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1503E84272B00BC458156B88 /* GraphTouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphTouch.swift; sourceTree = "<group>"; };
+		1614CA8D63BE124493661452 /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
+		185299C2BE06FC7B942C92BC /* Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		1A428E541C858AF62A5E8C34 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		1CB2C1553E6EE0D66508B544 /* EQtargetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = EQtargetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D5F3BB5E76EA5D9CDA98D35 /* ProcessingChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingChain.swift; sourceTree = "<group>"; };
+		1E28CEFDA504B67947E45C6D /* BassProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassProcessor.swift; sourceTree = "<group>"; };
+		1F1E1D3B3279EF179766FFD7 /* AppModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModelTests.swift; sourceTree = "<group>"; };
+		21C75CDCF5286ABBC6EF0D0D /* EQtargetsPreview.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = EQtargetsPreview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2208EA3E275272E75669D35E /* BassProcessorDSPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassProcessorDSPTests.swift; sourceTree = "<group>"; };
+		278877D98373D24D6E862A3F /* EQtargetsLogicTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = EQtargetsLogicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28C98A3F69DB3594CFA7058C /* DriftResamplerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftResamplerTests.swift; sourceTree = "<group>"; };
+		2C4E9D514AD99AF1F8C65B4F /* AutoEQImport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQImport.swift; sourceTree = "<group>"; };
+		31DDD849A2F564A49587337D /* ResponseGraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseGraphView.swift; sourceTree = "<group>"; };
+		32FDDE01A131C9EACC21B434 /* ImportFileReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFileReader.swift; sourceTree = "<group>"; };
+		35AA4B4CEBDAB44944585440 /* EQtargets.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = EQtargets.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37DAF4759A30D76FFC75E899 /* LinkClockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkClockTests.swift; sourceTree = "<group>"; };
+		3803152CAFC83F6035BE2AD1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		39FBE22A45D32C917349F86A /* EQTDeviceDriver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EQTDeviceDriver.m; sourceTree = "<group>"; };
+		3A46FFBC89F39617AE96B5CB /* MeterBallistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterBallistics.swift; sourceTree = "<group>"; };
+		3DFD8CCAFBA941B5298893AF /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		3E9957F2594BCB3A78379F82 /* EQControlIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQControlIntents.swift; sourceTree = "<group>"; };
+		3F58B4647494B06B98EF3E8D /* GraphOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphOverlay.swift; sourceTree = "<group>"; };
+		3FD25E370F195896A4DC10BB /* LinkJournalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkJournalTests.swift; sourceTree = "<group>"; };
+		42E0A2E14D97F218ACDB5541 /* EQModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQModels.swift; sourceTree = "<group>"; };
+		42EFF7892D57108B9B0F2AD2 /* GraphCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphCanvas.swift; sourceTree = "<group>"; };
+		4D399F399151D5A929D353C9 /* ImportPreviewSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPreviewSheet.swift; sourceTree = "<group>"; };
+		4ED3F457CB8A817C1FA35368 /* MediaDevice.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaDevice.framework; path = System/Library/Frameworks/MediaDevice.framework; sourceTree = SDKROOT; };
+		4EE2CC09F326D2A02A3441D5 /* LinkAuthTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkAuthTests.swift; sourceTree = "<group>"; };
+		4EEA3AF7F74BBF74A16F9008 /* PEQProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEQProcessor.swift; sourceTree = "<group>"; };
+		4F3434C7C97807FD5FE548A5 /* HeadphoneRemovalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadphoneRemovalTests.swift; sourceTree = "<group>"; };
+		517C6F54063399B4744EEA08 /* RateLimit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateLimit.swift; sourceTree = "<group>"; };
+		5556C1C1FA3144A039AC1237 /* BottomBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBar.swift; sourceTree = "<group>"; };
+		58300BB106CE93B4DBBD47AB /* LayerCards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayerCards.swift; sourceTree = "<group>"; };
+		58879E4B40B6005D862D8A2D /* EngineDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineDisplay.swift; sourceTree = "<group>"; };
+		58F2EE02CC612217B424F880 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		62DCBE7739C61EAD10AE4F34 /* LinkJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkJournal.swift; sourceTree = "<group>"; };
+		64DA3A6C88C39AD5D4447543 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6B95A7BA48B4FF9E847D5269 /* LinkKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkKey.swift; sourceTree = "<group>"; };
+		6CB98EC2D96997E5B93D25FA /* LimiterProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimiterProcessor.swift; sourceTree = "<group>"; };
+		6D445B0A2C2786B7D044C0A1 /* RingReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingReaderTests.swift; sourceTree = "<group>"; };
+		6E0D97E14E45DF753DEFBA13 /* EQControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQControls.swift; sourceTree = "<group>"; };
+		6EA9EC3AD5F0B0ABDDA5E52B /* ProcessingChainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessingChainTests.swift; sourceTree = "<group>"; };
+		6FF710F2FC531AC31C3C09B4 /* NumberEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberEntry.swift; sourceTree = "<group>"; };
+		71EEF3EEC04A54D4A0134951 /* PEQProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEQProcessorTests.swift; sourceTree = "<group>"; };
+		775221EF7E031FE29CC43FE8 /* EQControlState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQControlState.swift; sourceTree = "<group>"; };
+		7AAD5A714FA1268870F7B7DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		7B20B9529EA41DC560F7CDBD /* EQTDeviceDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EQTDeviceDriver.h; sourceTree = "<group>"; };
+		7C279B0DFA1777D46673FC3B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		82DA46E84E9C313BA83DA298 /* AutoEQParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoEQParserTests.swift; sourceTree = "<group>"; };
+		848E42F25104E427BAD35FD2 /* LinkSocketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkSocketTests.swift; sourceTree = "<group>"; };
+		86C4CD5C4FED433C617F0C1C /* ResponseMath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMath.swift; sourceTree = "<group>"; };
+		88F0D03EAB83EAE8EBCA9DD1 /* RingReader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingReader.swift; sourceTree = "<group>"; };
+		9123566CA64758804F80B97E /* EngineDriving.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineDriving.swift; sourceTree = "<group>"; };
+		963B15134BD2FF8CD65FB583 /* OutputCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputCard.swift; sourceTree = "<group>"; };
+		97D3789D069D915ACE6150EC /* EQTLink.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EQTLink.h; sourceTree = "<group>"; };
+		9859234F34517D0926178010 /* Controls.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Controls.entitlements; sourceTree = "<group>"; };
+		9C8DA56C1BBF42CEE6714596 /* TransientPunchProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransientPunchProcessor.swift; sourceTree = "<group>"; };
+		9F49843C73FC72B39FF3B9D6 /* EQTMediaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQTMediaExtension.swift; sourceTree = "<group>"; };
+		9FFC67B36D7EFC301B0E596C /* DebugLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugLaunch.swift; sourceTree = "<group>"; };
+		A4F0C44BF31E881646C6BF7B /* DemoFeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoFeeder.swift; sourceTree = "<group>"; };
+		A903984BE0E0DA801F2A39FA /* Network.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Network.framework; path = System/Library/Frameworks/Network.framework; sourceTree = SDKROOT; };
+		A93D4D5F14AECCF598F6A0FF /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		AA93276830D078CBC64F44E9 /* PresetStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetStore.swift; sourceTree = "<group>"; };
+		AB0B593F84FBA2891FC4A8C6 /* Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		AEEEAD644C190A87B8A19CA4 /* OutputDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutputDevice.swift; sourceTree = "<group>"; };
+		B027F0D1E92E48F7FF366186 /* LinkEngineRulesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkEngineRulesTests.swift; sourceTree = "<group>"; };
+		B3031DC952EF0AC9F289EA3E /* LinkCodecTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkCodecTests.swift; sourceTree = "<group>"; };
+		B38F77BECC5AA0F39DE4FD1F /* TransientPunchDSPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransientPunchDSPTests.swift; sourceTree = "<group>"; };
+		B454EB25C943DA86D49F9F18 /* KeepAwakeHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeepAwakeHolder.swift; sourceTree = "<group>"; };
+		B7A7DF635429C45DEA081780 /* LinkReservePolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkReservePolicy.swift; sourceTree = "<group>"; };
+		B8B514587FC96E3FE6348B63 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		B8D18E69773FC711E49F29E7 /* TuningBindingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TuningBindingStore.swift; sourceTree = "<group>"; };
+		BDF4526E615A29263E832559 /* EQTLink.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = EQTLink.c; sourceTree = "<group>"; };
+		C2047240700340975E9A6934 /* TestFixtures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestFixtures.swift; sourceTree = "<group>"; };
+		C487A31BF46A400E5EDDB280 /* DriftResampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriftResampler.swift; sourceTree = "<group>"; };
+		C99769E885B2062BD04500C5 /* LimiterDSPTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LimiterDSPTests.swift; sourceTree = "<group>"; };
+		D04BC74498B15B6E000097C6 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		D244C96A0ED65478A8F4B178 /* DeviceRuleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceRuleTests.swift; sourceTree = "<group>"; };
+		D32AE3F8DD93B8B31A3FFB08 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D3D4BB2212020BEF9F504C46 /* DriverTestStubs.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriverTestStubs.m; sourceTree = "<group>"; };
+		D3D98FFE94EDBA51F4142955 /* StatusChips.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusChips.swift; sourceTree = "<group>"; };
+		D49DF6EE5A0EB83CA700D055 /* Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extension.entitlements; sourceTree = "<group>"; };
+		D58105BAFE20721576CC1B09 /* PerformanceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
+		D8DBE02DFC403194F61E6F8C /* LinkTestSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkTestSupport.swift; sourceTree = "<group>"; };
+		DF463A826216367B0372B039 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		E1281A79AF7F36216C0ECB85 /* EQTIdentity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EQTIdentity.h; sourceTree = "<group>"; };
+		E1B3AD52475B68AC1A08C274 /* MeterHub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeterHub.swift; sourceTree = "<group>"; };
+		E23A1FBDF8555F0D36A11ABC /* SmokeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokeTests.swift; sourceTree = "<group>"; };
+		E387C65702D88B3262F1FD1C /* EQFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EQFormat.swift; sourceTree = "<group>"; };
+		E4BE301D1D45A7490534FB1E /* BassStylePanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BassStylePanel.swift; sourceTree = "<group>"; };
+		E6BCBEE1B5CF0D0F7AE37246 /* EQTRingProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EQTRingProtocol.h; sourceTree = "<group>"; };
+		E7CF753E43235E7C8C95D488 /* EQtargets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = EQtargets.entitlements; sourceTree = "<group>"; };
+		E88B9E059B78E37BC9F9BA0C /* GraphGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphGeometry.swift; sourceTree = "<group>"; };
+		EEADDBBA158C6BBD02CB5CC5 /* ControlCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlCenterTests.swift; sourceTree = "<group>"; };
+		F1B87D0DB6155CC19BA08CE5 /* AppModel+Actions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppModel+Actions.swift"; sourceTree = "<group>"; };
+		F33613AE67589C7291711B0D /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		F9160A099C487F9B899E455D /* BandEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandEditor.swift; sourceTree = "<group>"; };
+		F91FAA95E81BA4972B2E40D9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FCD62E2B605983BCA3C03C82 /* LinkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkEngine.swift; sourceTree = "<group>"; };
+		FD88FA76FEE1BF1161BF8286 /* App-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "App-Bridging-Header.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0105BC21595BFF39D64EF0D1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				32D3B77564586AE38436B5A7 /* MediaDevice.framework in Frameworks */,
+				244FACFD283D57A2CBDA9462 /* CoreAudio.framework in Frameworks */,
+				9A81F46AF1049079AAAD1170 /* AudioToolbox.framework in Frameworks */,
+				F2455BD052240BB565F25314 /* AVFoundation.framework in Frameworks */,
+				3E3B4E3F8752806B429DF6AE /* Network.framework in Frameworks */,
+				D066F32FE04C9C2D2791F5A1 /* ExtensionFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3937B5F58BFAD3A941793D65 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FE36508F624B02290577939 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		83069B1BCD87108E808067F1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF262EBCC78FACF75929B181 /* WidgetKit.framework in Frameworks */,
+				4D41B64CD7E783F3F8D774A6 /* SwiftUI.framework in Frameworks */,
+				6CC4B3B36C132FCCDC11FE3C /* AppIntents.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FBBAB23CA615F6903BD1098 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				448D45A9590E92C51A3295D8 /* AVFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C155BC26E536DFB37015202C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D16F217CBBC4CE0D09121E /* CoreAudio.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		030AF8056DD7E58CD5506615 /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				9859234F34517D0926178010 /* Controls.entitlements */,
+				3E9957F2594BCB3A78379F82 /* EQControlIntents.swift */,
+				6E0D97E14E45DF753DEFBA13 /* EQControls.swift */,
+				775221EF7E031FE29CC43FE8 /* EQControlState.swift */,
+				7C279B0DFA1777D46673FC3B /* Info.plist */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		0B13BBE6BE80BB31CB2FBCB1 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				42EFF7892D57108B9B0F2AD2 /* GraphCanvas.swift */,
+				3F58B4647494B06B98EF3E8D /* GraphOverlay.swift */,
+				1503E84272B00BC458156B88 /* GraphTouch.swift */,
+				31DDD849A2F564A49587337D /* ResponseGraphView.swift */,
+			);
+			path = Graph;
+			sourceTree = "<group>";
+		};
+		16B9947EB3271AC705A30D2B /* Bass */ = {
+			isa = PBXGroup;
+			children = (
+				0036E0F8B7B61F409AA20FA0 /* ActivityMeter.swift */,
+				E4BE301D1D45A7490534FB1E /* BassStylePanel.swift */,
+			);
+			path = Bass;
+			sourceTree = "<group>";
+		};
+		2098826E32DB0FB457FE0AB2 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7B20B9529EA41DC560F7CDBD /* EQTDeviceDriver.h */,
+				39FBE22A45D32C917349F86A /* EQTDeviceDriver.m */,
+				9F49843C73FC72B39FF3B9D6 /* EQTMediaExtension.swift */,
+				AB0B593F84FBA2891FC4A8C6 /* Extension-Bridging-Header.h */,
+				D49DF6EE5A0EB83CA700D055 /* Extension.entitlements */,
+				3803152CAFC83F6035BE2AD1 /* Info.plist */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		238AA5E08FC8ADD645D5598B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				58F2EE02CC612217B424F880 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		245B323E50DB096227ED6CCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E1B3AD52475B68AC1A08C274 /* MeterHub.swift */,
+				AA93276830D078CBC64F44E9 /* PresetStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		50201239B457D7BFDE4FAB8D /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				A4F0C44BF31E881646C6BF7B /* DemoFeeder.swift */,
+				9123566CA64758804F80B97E /* EngineDriving.swift */,
+				B454EB25C943DA86D49F9F18 /* KeepAwakeHolder.swift */,
+				FCD62E2B605983BCA3C03C82 /* LinkEngine.swift */,
+				0180E991FCD0C5C49E2D96A5 /* LinkEngineRules.swift */,
+				62DCBE7739C61EAD10AE4F34 /* LinkJournal.swift */,
+				0D5439D59A6C3AE02EE03A52 /* LinkRenderContext.swift */,
+				B7A7DF635429C45DEA081780 /* LinkReservePolicy.swift */,
+				AEEEAD644C190A87B8A19CA4 /* OutputDevice.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		51E0BAA087BE4F0871D82710 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F9160A099C487F9B899E455D /* BandEditor.swift */,
+				5556C1C1FA3144A039AC1237 /* BottomBar.swift */,
+				1A428E541C858AF62A5E8C34 /* Components.swift */,
+				036E4BB2ABDC4FF5692C3021 /* Header.swift */,
+				4D399F399151D5A929D353C9 /* ImportPreviewSheet.swift */,
+				58300BB106CE93B4DBBD47AB /* LayerCards.swift */,
+				F91FAA95E81BA4972B2E40D9 /* MainView.swift */,
+				963B15134BD2FF8CD65FB583 /* OutputCard.swift */,
+				D32AE3F8DD93B8B31A3FFB08 /* SettingsView.swift */,
+				16B9947EB3271AC705A30D2B /* Bass */,
+				0B13BBE6BE80BB31CB2FBCB1 /* Graph */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5A0EDE32F157EE1C74954E79 = {
+			isa = PBXGroup;
+			children = (
+				DD8DAB344ADF7A0B598BF312 /* ParametricEQ */,
+				671255AF5023C1F98A0284FC /* Sources */,
+				DC95866CD42FE793186294D2 /* Tests */,
+				8E7D0F16203376E2935A437D /* Frameworks */,
+				91D5702715CE94CBF7818B8F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5CE6BD43A318351B0F724698 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				E6BCBEE1B5CF0D0F7AE37246 /* EQTRingProtocol.h */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		5E61475E618B376555F79990 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				1F1E1D3B3279EF179766FFD7 /* AppModelTests.swift */,
+				EEADDBBA158C6BBD02CB5CC5 /* ControlCenterTests.swift */,
+				D244C96A0ED65478A8F4B178 /* DeviceRuleTests.swift */,
+				10778AFC45CC19BBD36FF6AE /* DriverContractTests.swift */,
+				D3D4BB2212020BEF9F504C46 /* DriverTestStubs.m */,
+				4F3434C7C97807FD5FE548A5 /* HeadphoneRemovalTests.swift */,
+				05E6E8AC96FDA17904C9D3F8 /* KeepAwakeHolderTests.swift */,
+				4EE2CC09F326D2A02A3441D5 /* LinkAuthTests.swift */,
+				37DAF4759A30D76FFC75E899 /* LinkClockTests.swift */,
+				B3031DC952EF0AC9F289EA3E /* LinkCodecTests.swift */,
+				B027F0D1E92E48F7FF366186 /* LinkEngineRulesTests.swift */,
+				3FD25E370F195896A4DC10BB /* LinkJournalTests.swift */,
+				848E42F25104E427BAD35FD2 /* LinkSocketTests.swift */,
+				D8DBE02DFC403194F61E6F8C /* LinkTestSupport.swift */,
+				185299C2BE06FC7B942C92BC /* Tests-Bridging-Header.h */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		5E80D5EEC230D624B5EEB89A /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FD88FA76FEE1BF1161BF8286 /* App-Bridging-Header.h */,
+				E7CF753E43235E7C8C95D488 /* EQtargets.entitlements */,
+				00B52F0FC195F8A7CB0DA009 /* EQtargetsIOSApp.swift */,
+				7AAD5A714FA1268870F7B7DA /* Info.plist */,
+				C065A06A301B902D8721909A /* Debug */,
+				84B4E206075B1474F47A352D /* Model */,
+				238AA5E08FC8ADD645D5598B /* Resources */,
+				DD6760217F149CC2EDAC8A81 /* Theme */,
+				51E0BAA087BE4F0871D82710 /* Views */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		671255AF5023C1F98A0284FC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				5E80D5EEC230D624B5EEB89A /* App */,
+				50201239B457D7BFDE4FAB8D /* Audio */,
+				030AF8056DD7E58CD5506615 /* Controls */,
+				2098826E32DB0FB457FE0AB2 /* Extension */,
+				A2942511BE8FB534923AEDC7 /* Link */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		70ED0599173258A0C31DDBDF /* EQTCore */ = {
+			isa = PBXGroup;
+			children = (
+				FC2A3672989180E4776266DC /* DSP */,
+				F4023C1C9EDF07D87521F11C /* Models */,
+			);
+			path = EQTCore;
+			sourceTree = "<group>";
+		};
+		84B4E206075B1474F47A352D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8B514587FC96E3FE6348B63 /* AppModel.swift */,
+				F1B87D0DB6155CC19BA08CE5 /* AppModel+Actions.swift */,
+				58879E4B40B6005D862D8A2D /* EngineDisplay.swift */,
+				E88B9E059B78E37BC9F9BA0C /* GraphGeometry.swift */,
+				32FDDE01A131C9EACC21B434 /* ImportFileReader.swift */,
+				6FF710F2FC531AC31C3C09B4 /* NumberEntry.swift */,
+				01FC708CE92127F1C2014D97 /* OutputCardContent.swift */,
+				B8D18E69773FC711E49F29E7 /* TuningBindingStore.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E7D0F16203376E2935A437D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1614CA8D63BE124493661452 /* AppIntents.framework */,
+				F33613AE67589C7291711B0D /* AudioToolbox.framework */,
+				64DA3A6C88C39AD5D4447543 /* AVFoundation.framework */,
+				DF463A826216367B0372B039 /* CoreAudio.framework */,
+				10E9EFDD2A6E0D7D353D20B0 /* ExtensionFoundation.framework */,
+				4ED3F457CB8A817C1FA35368 /* MediaDevice.framework */,
+				A903984BE0E0DA801F2A39FA /* Network.framework */,
+				A93D4D5F14AECCF598F6A0FF /* SwiftUI.framework */,
+				D04BC74498B15B6E000097C6 /* WidgetKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		91D5702715CE94CBF7818B8F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				35AA4B4CEBDAB44944585440 /* EQtargets.app */,
+				13B17829AF8D39BAD2B3F503 /* EQtargetsControls.appex */,
+				1CB2C1553E6EE0D66508B544 /* EQtargetsExtension.appex */,
+				278877D98373D24D6E862A3F /* EQtargetsLogicTests.xctest */,
+				21C75CDCF5286ABBC6EF0D0D /* EQtargetsPreview.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A2942511BE8FB534923AEDC7 /* Link */ = {
+			isa = PBXGroup;
+			children = (
+				E1281A79AF7F36216C0ECB85 /* EQTIdentity.h */,
+				BDF4526E615A29263E832559 /* EQTLink.c */,
+				97D3789D069D915ACE6150EC /* EQTLink.h */,
+				6B95A7BA48B4FF9E847D5269 /* LinkKey.swift */,
+			);
+			path = Link;
+			sourceTree = "<group>";
+		};
+		BDA68F2F08FB190D06133E2C /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E1F386B4765C136460970ADB /* EQTCoreTests */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		C065A06A301B902D8721909A /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				9FFC67B36D7EFC301B0E596C /* DebugLaunch.swift */,
+			);
+			path = Debug;
+			sourceTree = "<group>";
+		};
+		C1F5C33C6F4CD3E64A2A9201 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F689934BF283B8F293299B76 /* App */,
+				70ED0599173258A0C31DDBDF /* EQTCore */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DC95866CD42FE793186294D2 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				5E61475E618B376555F79990 /* Logic */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		DD6760217F149CC2EDAC8A81 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				3DFD8CCAFBA941B5298893AF /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		DD8DAB344ADF7A0B598BF312 /* ParametricEQ */ = {
+			isa = PBXGroup;
+			children = (
+				5CE6BD43A318351B0F724698 /* Shared */,
+				C1F5C33C6F4CD3E64A2A9201 /* Sources */,
+				BDA68F2F08FB190D06133E2C /* Tests */,
+			);
+			name = ParametricEQ;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E1F386B4765C136460970ADB /* EQTCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				82DA46E84E9C313BA83DA298 /* AutoEQParserTests.swift */,
+				2208EA3E275272E75669D35E /* BassProcessorDSPTests.swift */,
+				28C98A3F69DB3594CFA7058C /* DriftResamplerTests.swift */,
+				C99769E885B2062BD04500C5 /* LimiterDSPTests.swift */,
+				71EEF3EEC04A54D4A0134951 /* PEQProcessorTests.swift */,
+				D58105BAFE20721576CC1B09 /* PerformanceTests.swift */,
+				6EA9EC3AD5F0B0ABDDA5E52B /* ProcessingChainTests.swift */,
+				6D445B0A2C2786B7D044C0A1 /* RingReaderTests.swift */,
+				E23A1FBDF8555F0D36A11ABC /* SmokeTests.swift */,
+				C2047240700340975E9A6934 /* TestFixtures.swift */,
+				B38F77BECC5AA0F39DE4FD1F /* TransientPunchDSPTests.swift */,
+			);
+			path = EQTCoreTests;
+			sourceTree = "<group>";
+		};
+		E40EB8A9A0DDA394EFD75ADF /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				2C4E9D514AD99AF1F8C65B4F /* AutoEQImport.swift */,
+				E387C65702D88B3262F1FD1C /* EQFormat.swift */,
+				3A46FFBC89F39617AE96B5CB /* MeterBallistics.swift */,
+				517C6F54063399B4744EEA08 /* RateLimit.swift */,
+				86C4CD5C4FED433C617F0C1C /* ResponseMath.swift */,
+				D3D98FFE94EDBA51F4142955 /* StatusChips.swift */,
+			);
+			path = Logic;
+			sourceTree = "<group>";
+		};
+		F4023C1C9EDF07D87521F11C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1E28CEFDA504B67947E45C6D /* BassProcessor.swift */,
+				42E0A2E14D97F218ACDB5541 /* EQModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F689934BF283B8F293299B76 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E40EB8A9A0DDA394EFD75ADF /* Logic */,
+				245B323E50DB096227ED6CCD /* Model */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FC2A3672989180E4776266DC /* DSP */ = {
+			isa = PBXGroup;
+			children = (
+				C487A31BF46A400E5EDDB280 /* DriftResampler.swift */,
+				6CB98EC2D96997E5B93D25FA /* LimiterProcessor.swift */,
+				4EEA3AF7F74BBF74A16F9008 /* PEQProcessor.swift */,
+				1D5F3BB5E76EA5D9CDA98D35 /* ProcessingChain.swift */,
+				88F0D03EAB83EAE8EBCA9DD1 /* RingReader.swift */,
+				017C3B998AF0D97C9263CB6A /* RTSupport.swift */,
+				9C8DA56C1BBF42CEE6714596 /* TransientPunchProcessor.swift */,
+			);
+			path = DSP;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01E294C1E02F58BFD0A7A923 /* EQtargetsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B05F965B2C27FE6F496446AA /* Build configuration list for PBXNativeTarget "EQtargetsExtension" */;
+			buildPhases = (
+				D2F2939056D1DD35F9134754 /* Sources */,
+				0105BC21595BFF39D64EF0D1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EQtargetsExtension;
+			packageProductDependencies = (
+			);
+			productName = EQtargetsExtension;
+			productReference = 1CB2C1553E6EE0D66508B544 /* EQtargetsExtension.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
+		466C1A35F570D81F02774997 /* EQtargetsControls */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF524D73F7553E7FD5984B99 /* Build configuration list for PBXNativeTarget "EQtargetsControls" */;
+			buildPhases = (
+				46BDBBD097FE6E0BA7F5F6D4 /* Sources */,
+				83069B1BCD87108E808067F1 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EQtargetsControls;
+			packageProductDependencies = (
+			);
+			productName = EQtargetsControls;
+			productReference = 13B17829AF8D39BAD2B3F503 /* EQtargetsControls.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		4A05451749B7A14B49762D5A /* EQtargetsLogicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CEFA1AEDD2CC1228BAA1BE75 /* Build configuration list for PBXNativeTarget "EQtargetsLogicTests" */;
+			buildPhases = (
+				381659108528E1B7AF394E78 /* Sources */,
+				C155BC26E536DFB37015202C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EQtargetsLogicTests;
+			packageProductDependencies = (
+			);
+			productName = EQtargetsLogicTests;
+			productReference = 278877D98373D24D6E862A3F /* EQtargetsLogicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A722A9986586C9262C9DB305 /* EQtargetsPreview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4CBA46E231080880D350DF9D /* Build configuration list for PBXNativeTarget "EQtargetsPreview" */;
+			buildPhases = (
+				3BAAB06BF94F40B560BB8F7F /* Sources */,
+				34A9ECDA3D119D74D342D23F /* Resources */,
+				3937B5F58BFAD3A941793D65 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EQtargetsPreview;
+			packageProductDependencies = (
+			);
+			productName = EQtargetsPreview;
+			productReference = 21C75CDCF5286ABBC6EF0D0D /* EQtargetsPreview.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FC5870ADFF548E8687DEA5A0 /* EQtargets */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5B63EB6A3CDC794600AF1983 /* Build configuration list for PBXNativeTarget "EQtargets" */;
+			buildPhases = (
+				B948F42567CAB9769713D01F /* Sources */,
+				84F565D02F19C637901E9648 /* Resources */,
+				9FBBAB23CA615F6903BD1098 /* Frameworks */,
+				4A94D9C9BFDD927E03D301E1 /* Embed Foundation Extensions */,
+				3F3DF30187AA9BF7291175CD /* Embed ExtensionKit Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BD63C612FA3E3F5E740571D /* PBXTargetDependency */,
+				F4D6EA701C731AB19A8A75EB /* PBXTargetDependency */,
+			);
+			name = EQtargets;
+			packageProductDependencies = (
+			);
+			productName = EQtargets;
+			productReference = 35AA4B4CEBDAB44944585440 /* EQtargets.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		73064794B4F8002E862014A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					01E294C1E02F58BFD0A7A923 = {
+						ProvisioningStyle = Automatic;
+					};
+					466C1A35F570D81F02774997 = {
+						ProvisioningStyle = Automatic;
+					};
+					4A05451749B7A14B49762D5A = {
+						ProvisioningStyle = Automatic;
+					};
+					A722A9986586C9262C9DB305 = {
+						ProvisioningStyle = Automatic;
+					};
+					FC5870ADFF548E8687DEA5A0 = {
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 497CA097DBF141F1A38DC939 /* Build configuration list for PBXProject "EQtargetsIOS" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 5A0EDE32F157EE1C74954E79;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 91D5702715CE94CBF7818B8F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FC5870ADFF548E8687DEA5A0 /* EQtargets */,
+				A722A9986586C9262C9DB305 /* EQtargetsPreview */,
+				01E294C1E02F58BFD0A7A923 /* EQtargetsExtension */,
+				466C1A35F570D81F02774997 /* EQtargetsControls */,
+				4A05451749B7A14B49762D5A /* EQtargetsLogicTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		34A9ECDA3D119D74D342D23F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5EE2F47E80AAA6AD3E58AFC /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		84F565D02F19C637901E9648 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B6E323789230967942ECC118 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		381659108528E1B7AF394E78 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB12F6FE8DF987F63F65ABC2 /* AppModel+Actions.swift in Sources */,
+				DF07925F20B027F31D72FC97 /* AppModel.swift in Sources */,
+				82F887E8EAE0929B01553E99 /* AppModelTests.swift in Sources */,
+				D37AA03BB0F9832766334257 /* AutoEQImport.swift in Sources */,
+				6C1E98FA3E5A553DE8866122 /* AutoEQParserTests.swift in Sources */,
+				4B2B791178B6EB156DEDDD42 /* BassProcessor.swift in Sources */,
+				AC79C32672824AD879B697A3 /* BassProcessorDSPTests.swift in Sources */,
+				8A5D892CDC66774B52E55577 /* ControlCenterTests.swift in Sources */,
+				5101CDF0E8625A4C064FDF39 /* DeviceRuleTests.swift in Sources */,
+				FE8FD5557453E9AA17016317 /* DriftResampler.swift in Sources */,
+				D1BE9BDE7EB36F29B2222F23 /* DriftResamplerTests.swift in Sources */,
+				ED91FED3EC0187A6D6624F42 /* DriverContractTests.swift in Sources */,
+				36F37B04DD403C489B6C3BEF /* DriverTestStubs.m in Sources */,
+				26C37235EF9D1764F5D6B99B /* EQControlIntents.swift in Sources */,
+				E4562E762189F55B04557F4C /* EQControlState.swift in Sources */,
+				23952E4B2014D386DE1AED47 /* EQFormat.swift in Sources */,
+				94B0219EA378193F781C1AA6 /* EQModels.swift in Sources */,
+				E6C7F7F0EE56A32643C04261 /* EQTDeviceDriver.m in Sources */,
+				5A34EAC7D52333D07455CEEE /* EQTLink.c in Sources */,
+				DCAEEAE57FAF289036ED4425 /* EngineDisplay.swift in Sources */,
+				D4917892801D17C442BE706D /* EngineDriving.swift in Sources */,
+				03FA7D2836E9C4BEF3F31169 /* GraphGeometry.swift in Sources */,
+				8FB6DA6CA13FC36DECCDFFF7 /* HeadphoneRemovalTests.swift in Sources */,
+				867901A796600B274A85F801 /* ImportFileReader.swift in Sources */,
+				81D4FD8CF171D6A107FD273D /* KeepAwakeHolder.swift in Sources */,
+				A06D4FD04FE0129CED9F899B /* KeepAwakeHolderTests.swift in Sources */,
+				492E5EEA6AA824B783D29642 /* LimiterDSPTests.swift in Sources */,
+				412DA1A047D5B8B59F5D4A47 /* LimiterProcessor.swift in Sources */,
+				18605BF754D3E163BE994823 /* LinkAuthTests.swift in Sources */,
+				41AC019044E55BF5C7F3F9E0 /* LinkClockTests.swift in Sources */,
+				C3E7A0BB4E5CC6AB262BE08B /* LinkCodecTests.swift in Sources */,
+				D87C7D15266C6822CD83F9AB /* LinkEngineRules.swift in Sources */,
+				7DB46D2B2BCD0F2AAEA23C2E /* LinkEngineRulesTests.swift in Sources */,
+				B43BE5AD9D9DFDA56CD55D3C /* LinkJournal.swift in Sources */,
+				0C044594848545F56158D989 /* LinkJournalTests.swift in Sources */,
+				5CE128AC01E843E2E42B5AE8 /* LinkKey.swift in Sources */,
+				D21D1C15D3562A7907CEEDD7 /* LinkReservePolicy.swift in Sources */,
+				29A504C40BD33192BEDED824 /* LinkSocketTests.swift in Sources */,
+				98F3ACF3F197DDD80E156F1D /* LinkTestSupport.swift in Sources */,
+				2492BB8654C5DED48BCC86C0 /* MeterBallistics.swift in Sources */,
+				C0F19506D9567914577E6D52 /* MeterHub.swift in Sources */,
+				33A8DF5CBAF2CB4C944E77C4 /* NumberEntry.swift in Sources */,
+				127B0C070AB7E7AF0E0B7CB5 /* OutputCardContent.swift in Sources */,
+				9DFDE65CA4BE47C62E8E2146 /* OutputDevice.swift in Sources */,
+				4BFE972B102271DB80BD0A25 /* PEQProcessor.swift in Sources */,
+				3400882743068E8B20ACFB47 /* PEQProcessorTests.swift in Sources */,
+				156B43C5D19863100DDB39D3 /* PerformanceTests.swift in Sources */,
+				BF5C89D11915074629BFC392 /* PresetStore.swift in Sources */,
+				A5D2870A5D00F0A23D645843 /* ProcessingChain.swift in Sources */,
+				5AC56C3C01C53C859A55D6DF /* ProcessingChainTests.swift in Sources */,
+				9B2068FD6EFE3A03477981D2 /* RTSupport.swift in Sources */,
+				55DF7ABF691EA13942122F28 /* RateLimit.swift in Sources */,
+				3F8F04C13CB7DFE05414C6F1 /* ResponseMath.swift in Sources */,
+				C890A4D88B1AA063E070AFEC /* RingReader.swift in Sources */,
+				8A1073A669C6DE5216F5A4B6 /* RingReaderTests.swift in Sources */,
+				BAB2C834FCB294B863EB808A /* SmokeTests.swift in Sources */,
+				79865E5D796874BC4FB24B4B /* StatusChips.swift in Sources */,
+				5F374EA75C30E1E681C1FF5E /* TestFixtures.swift in Sources */,
+				A3893741C926487AB78473FC /* TransientPunchDSPTests.swift in Sources */,
+				488EF07D5C776B6E946174FB /* TransientPunchProcessor.swift in Sources */,
+				8626FC8D7CEC2F4D5DE43AA4 /* TuningBindingStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3BAAB06BF94F40B560BB8F7F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				10253A7A4A72FBB504369541 /* ActivityMeter.swift in Sources */,
+				8EE5649C56F00FDAE5E207D2 /* AppModel+Actions.swift in Sources */,
+				CF664E2FDFF54FA4773AC815 /* AppModel.swift in Sources */,
+				2CEC70DB79D298EB699FFCAA /* AutoEQImport.swift in Sources */,
+				BA70D1B23B0AC734243F700D /* BandEditor.swift in Sources */,
+				8C147998A0314DA39069A3C8 /* BassProcessor.swift in Sources */,
+				B56BB2CF6D65773953F05754 /* BassStylePanel.swift in Sources */,
+				B0815603344F17282C83B879 /* BottomBar.swift in Sources */,
+				FD6AADB02B16745C06C5BFD8 /* Components.swift in Sources */,
+				AD31691E13B3EAD735E1CAA4 /* DebugLaunch.swift in Sources */,
+				BA5FEFB5A5C0D0DFF5450129 /* DemoFeeder.swift in Sources */,
+				67F2A7C3C8FAE71EA5C3C29A /* DriftResampler.swift in Sources */,
+				1C28B60E7090C0F2533C0690 /* EQControlIntents.swift in Sources */,
+				36A21E5DBAC7B9A163E3BDB3 /* EQControlState.swift in Sources */,
+				49F489E3DE61B6687424D018 /* EQFormat.swift in Sources */,
+				1968F17E33A69165BC701BE3 /* EQModels.swift in Sources */,
+				EA0BE2D87DE61858E54AC28D /* EQTLink.c in Sources */,
+				71CFB4D09602E01C5F23BDA8 /* EQtargetsIOSApp.swift in Sources */,
+				81E3D7A50B39137B220F90EB /* EngineDisplay.swift in Sources */,
+				8CFF58A1867F74E5A47D8702 /* EngineDriving.swift in Sources */,
+				5CDF3DC76D72F7FE1703D52C /* GraphCanvas.swift in Sources */,
+				B5EFE095674A166F3123E6E9 /* GraphGeometry.swift in Sources */,
+				F5EC6791BC0DD1F43833BDA5 /* GraphOverlay.swift in Sources */,
+				4212991E8A0D73B88F937313 /* GraphTouch.swift in Sources */,
+				4DC9918D6A2EAAAE5E568E83 /* Header.swift in Sources */,
+				3A350738932EBA24CC8C4EBE /* ImportFileReader.swift in Sources */,
+				0336006E1AEB46860D69C07F /* ImportPreviewSheet.swift in Sources */,
+				A412BDA96CB6A9D37EAB3E24 /* KeepAwakeHolder.swift in Sources */,
+				E2856CEC564B946F9866C447 /* LayerCards.swift in Sources */,
+				3002E26104FED0861A7472BE /* LimiterProcessor.swift in Sources */,
+				88E331A43D6D9A8DECEF1CB6 /* LinkEngine.swift in Sources */,
+				53FB5A7D49DAF1E0D2EF06E9 /* LinkEngineRules.swift in Sources */,
+				13A4F57FF7C1095E729E406B /* LinkJournal.swift in Sources */,
+				53BFC0AFB19E5085D0D13EDF /* LinkKey.swift in Sources */,
+				8A0B83A6FDE966FFE8CDCA77 /* LinkRenderContext.swift in Sources */,
+				9543BDACB300CD9EABEFC6E2 /* LinkReservePolicy.swift in Sources */,
+				2FC5C66A21E6B585F9E15E5B /* MainView.swift in Sources */,
+				D8D5B3045651040ACFB1ACF7 /* MeterBallistics.swift in Sources */,
+				3453DE5CFCA824A864ABD953 /* MeterHub.swift in Sources */,
+				19903B8D4C00A4F5971549D6 /* NumberEntry.swift in Sources */,
+				7BF74A8D679E3BCFBCBEC1F3 /* OutputCard.swift in Sources */,
+				054B728255AD9BA932F4576E /* OutputCardContent.swift in Sources */,
+				AD838D4872C41178EE169F11 /* OutputDevice.swift in Sources */,
+				5CBF44015C93A90D9D47FEA6 /* PEQProcessor.swift in Sources */,
+				294525E86C116E80E8F77D7A /* PresetStore.swift in Sources */,
+				CFE2098274AE94757611C9DD /* ProcessingChain.swift in Sources */,
+				6DD49DB4715E1D976BC2CF62 /* RTSupport.swift in Sources */,
+				59E1A5AE289A69695F2A423D /* RateLimit.swift in Sources */,
+				1C78E5E573C93F52B48FB37E /* ResponseGraphView.swift in Sources */,
+				386ED0EA711BA8898BA65D72 /* ResponseMath.swift in Sources */,
+				D0BB92620CF43067793420C3 /* RingReader.swift in Sources */,
+				3F6D24010744F7B5C9B73F08 /* SettingsView.swift in Sources */,
+				B31F4CAB46EDCCF85E1FFD01 /* StatusChips.swift in Sources */,
+				7F0EDD38E9830BE02B084F22 /* Theme.swift in Sources */,
+				90262F795EACC2EA2287C825 /* TransientPunchProcessor.swift in Sources */,
+				56803B4B220998B248259881 /* TuningBindingStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		46BDBBD097FE6E0BA7F5F6D4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A52684EE39FB95E4B3C03A01 /* EQControlIntents.swift in Sources */,
+				545A1526816C400C711F68B0 /* EQControlState.swift in Sources */,
+				A537B410E31C7D4F029F23DD /* EQControls.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B948F42567CAB9769713D01F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2979B2BBBD7DBC4D04553F0 /* ActivityMeter.swift in Sources */,
+				BD86C7FC85EA5267BF5CD34B /* AppModel+Actions.swift in Sources */,
+				C873D4C96AF955F147CCF25F /* AppModel.swift in Sources */,
+				B556A2602852831BBFFEADDE /* AutoEQImport.swift in Sources */,
+				3729D7C4B09289BB15F0C113 /* BandEditor.swift in Sources */,
+				D5F57BC7DE70CF8E59E82312 /* BassProcessor.swift in Sources */,
+				F6693587D0FEF82B32A3DC25 /* BassStylePanel.swift in Sources */,
+				B3B587FAEF006B57CC5B696E /* BottomBar.swift in Sources */,
+				A060B31187DD34A576D73347 /* Components.swift in Sources */,
+				A6C83EF3FB88DF486E741B99 /* DebugLaunch.swift in Sources */,
+				F4BCCBA10B3228A617960300 /* DemoFeeder.swift in Sources */,
+				54F90AC46A6EB30018014786 /* DriftResampler.swift in Sources */,
+				EDE5041643605B65788C8CE1 /* EQControlIntents.swift in Sources */,
+				97762F1D911E503BF02F206A /* EQControlState.swift in Sources */,
+				72BF7556E522F8B168F33246 /* EQFormat.swift in Sources */,
+				168C6F171B4A030EF1F8BE0C /* EQModels.swift in Sources */,
+				D2B2256F78C7FB0D2E722951 /* EQTLink.c in Sources */,
+				CDE2A8E57A8EBF717599BBDC /* EQtargetsIOSApp.swift in Sources */,
+				20643C1AB9C1F1CD2B99F9E4 /* EngineDisplay.swift in Sources */,
+				C7DF0063807CEDB9B134F9B2 /* EngineDriving.swift in Sources */,
+				A2823A9D35CE711E4C3A1158 /* GraphCanvas.swift in Sources */,
+				5D502A4AFCCAA1097414F2F4 /* GraphGeometry.swift in Sources */,
+				16687F9B70DEAE4752082D69 /* GraphOverlay.swift in Sources */,
+				D39ECEA7894D35F65B043056 /* GraphTouch.swift in Sources */,
+				5C0F3126A4C702675E7C8B96 /* Header.swift in Sources */,
+				FB203505D201A485E3711BED /* ImportFileReader.swift in Sources */,
+				565A1DCC62E239D6AF60C90D /* ImportPreviewSheet.swift in Sources */,
+				AA83416378EC30DF13292A36 /* KeepAwakeHolder.swift in Sources */,
+				3AE3B253493075E16F52BD78 /* LayerCards.swift in Sources */,
+				E237D058E633B9EB4B3F81A0 /* LimiterProcessor.swift in Sources */,
+				FAA2ACE2B4AABD022B2B2C92 /* LinkEngine.swift in Sources */,
+				456BC959F00C6B585D003008 /* LinkEngineRules.swift in Sources */,
+				3D4A50A28D9FF46B84BC6BB8 /* LinkJournal.swift in Sources */,
+				D46B237CB072684F63ACDE18 /* LinkKey.swift in Sources */,
+				130A261A0CE7B0AACE126D6F /* LinkRenderContext.swift in Sources */,
+				7D6B745B095D00B493831DF7 /* LinkReservePolicy.swift in Sources */,
+				DC28CCBE77B037AD89BA0D52 /* MainView.swift in Sources */,
+				47108CD3623854B0CFFE983E /* MeterBallistics.swift in Sources */,
+				8C52B79A03B8FE5E04CFE823 /* MeterHub.swift in Sources */,
+				12DB9E579B27BC9DDC5942ED /* NumberEntry.swift in Sources */,
+				0F7DA2F3C31B38C99B04D710 /* OutputCard.swift in Sources */,
+				2D974350A3A3129F47DBDFC7 /* OutputCardContent.swift in Sources */,
+				24C58B8E5196F26841EA9FCF /* OutputDevice.swift in Sources */,
+				1F53D7255B5AEA5E6FB8EB3F /* PEQProcessor.swift in Sources */,
+				CD3BAA6B937006B8BDA52BBC /* PresetStore.swift in Sources */,
+				0A4EE181840ADCBAB4EB4EDD /* ProcessingChain.swift in Sources */,
+				46A9C1965CD7FA0FB0E92005 /* RTSupport.swift in Sources */,
+				C0E920702CEBC7A3A7B67ECD /* RateLimit.swift in Sources */,
+				1723E4AE0C4B0B9118A9A075 /* ResponseGraphView.swift in Sources */,
+				1045D9FDC967FC30253E4EA6 /* ResponseMath.swift in Sources */,
+				5D57C7F96FD6C0B9C3FF5DD5 /* RingReader.swift in Sources */,
+				7F619D774002B4FB5AA54B0C /* SettingsView.swift in Sources */,
+				DFEBB0E39D1E7F79CD6E1345 /* StatusChips.swift in Sources */,
+				20F32E35A46B7EA34F70E6CF /* Theme.swift in Sources */,
+				542B56F3AF1D83982CAE869F /* TransientPunchProcessor.swift in Sources */,
+				2CFCBEF1B4F0FECE784FC852 /* TuningBindingStore.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D2F2939056D1DD35F9134754 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				205C59C243383778E95AD876 /* EQTDeviceDriver.m in Sources */,
+				CE168CDD0727B3E75E4C7D16 /* EQTLink.c in Sources */,
+				9A9C7172F0F390DF321F42F4 /* EQTMediaExtension.swift in Sources */,
+				CEC02979FF6A34D75C53D94A /* LinkKey.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8BD63C612FA3E3F5E740571D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01E294C1E02F58BFD0A7A923 /* EQtargetsExtension */;
+			targetProxy = CE499B5F7617662779D8028D /* PBXContainerItemProxy */;
+		};
+		F4D6EA701C731AB19A8A75EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 466C1A35F570D81F02774997 /* EQtargetsControls */;
+			targetProxy = D89E9BF59AD7F99531000F22 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		15BE9391C46CC5419379065A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../Shared",
+					"$(SRCROOT)/Sources/Link",
+					"$(SRCROOT)/Sources/Extension",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		172CEDD1B5076E2AC93185F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"EQT_TEST_HOOKS=1",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios.logictests;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Logic/Tests-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "";
+			};
+			name = Debug;
+		};
+		1FA7A773E29E057C265B1349 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios.preview;
+				PRODUCT_NAME = "EQtargets Preview";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/App/App-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BD692A9CB56AA0D2E5FE4D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Sources/Extension/Extension.entitlements;
+				INFOPLIST_FILE = Sources/Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios.extension;
+				PRODUCT_NAME = EQtargetsExtension;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/Extension/Extension-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7F2D136A2219F2C321AA9BC4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				INFOPLIST_FILE = Sources/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LLVM_LTO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios.preview;
+				PRODUCT_NAME = "EQtargets Preview";
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = all;
+				STRIP_SWIFT_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_CROSS_MODULE_OPTIMIZATION = YES;
+				SWIFT_LTO = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/App/App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8F0C628C96940BD7F85F2A2F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/App/EQtargets.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				INFOPLIST_FILE = Sources/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LLVM_LTO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios;
+				PRODUCT_NAME = EQtargets;
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = all;
+				STRIP_SWIFT_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) EQT_HAS_EXTENSION";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_CROSS_MODULE_OPTIMIZATION = YES;
+				SWIFT_LTO = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/App/App-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9B7802D85AFEF163B4D6E4C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"EQT_TEST_HOOKS=1",
+				);
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios.logictests;
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/Logic/Tests-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "";
+			};
+			name = Release;
+		};
+		AB903DA06B057F5FA96C2B79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				CODE_SIGN_ENTITLEMENTS = Sources/Controls/Controls.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				INFOPLIST_FILE = Sources/Controls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				LLVM_LTO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios.controls;
+				PRODUCT_NAME = EQtargetsControls;
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = all;
+				STRIP_SWIFT_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_CROSS_MODULE_OPTIMIZATION = YES;
+				SWIFT_LTO = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ACC0ED0BA0C26D5EA7056569 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = arm64;
+				CODE_SIGN_ENTITLEMENTS = Sources/Extension/Extension.entitlements;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEPLOYMENT_POSTPROCESSING = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				INFOPLIST_FILE = Sources/Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LLVM_LTO = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios.extension;
+				PRODUCT_NAME = EQtargetsExtension;
+				SDKROOT = iphoneos;
+				STRIP_INSTALLED_PRODUCT = YES;
+				STRIP_STYLE = all;
+				STRIP_SWIFT_SYMBOLS = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_CROSS_MODULE_OPTIMIZATION = YES;
+				SWIFT_LTO = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/Extension/Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CF40159A36A0DE6FB2D87AD4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = NO;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/../Shared",
+					"$(SRCROOT)/Sources/Link",
+					"$(SRCROOT)/Sources/Extension",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 27.0;
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = minimal;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DC619E1EF55A46EBB44699E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Sources/App/EQtargets.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Sources/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios;
+				PRODUCT_NAME = EQtargets;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) EQT_HAS_EXTENSION";
+				SWIFT_OBJC_BRIDGING_HEADER = "Sources/App/App-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC764413A60A0999C58FBC51 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = Sources/Controls/Controls.entitlements;
+				INFOPLIST_FILE = Sources/Controls/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.eqtargets.ios.controls;
+				PRODUCT_NAME = EQtargetsControls;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		497CA097DBF141F1A38DC939 /* Build configuration list for PBXProject "EQtargetsIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15BE9391C46CC5419379065A /* Debug */,
+				CF40159A36A0DE6FB2D87AD4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4CBA46E231080880D350DF9D /* Build configuration list for PBXNativeTarget "EQtargetsPreview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FA7A773E29E057C265B1349 /* Debug */,
+				7F2D136A2219F2C321AA9BC4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		5B63EB6A3CDC794600AF1983 /* Build configuration list for PBXNativeTarget "EQtargets" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC619E1EF55A46EBB44699E4 /* Debug */,
+				8F0C628C96940BD7F85F2A2F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B05F965B2C27FE6F496446AA /* Build configuration list for PBXNativeTarget "EQtargetsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BD692A9CB56AA0D2E5FE4D7 /* Debug */,
+				ACC0ED0BA0C26D5EA7056569 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CEFA1AEDD2CC1228BAA1BE75 /* Build configuration list for PBXNativeTarget "EQtargetsLogicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				172CEDD1B5076E2AC93185F1 /* Debug */,
+				9B7802D85AFEF163B4D6E4C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FF524D73F7553E7FD5984B99 /* Build configuration list for PBXNativeTarget "EQtargetsControls" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC764413A60A0999C58FBC51 /* Debug */,
+				AB903DA06B057F5FA96C2B79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 73064794B4F8002E862014A0 /* Project object */;
+}

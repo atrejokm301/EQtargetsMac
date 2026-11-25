@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Must stay an EMPTY array. The key satisfies App Store validation; any value
+	     makes the system refuse this app's audio session with '!pla'. -->
+	<key>com.apple.developer.media-device-extension</key>
+	<array/>
+	<key>keychain-access-groups</key>
+	<array>
+		<string>$(AppIdentifierPrefix)com.eqtargets.ios.link</string>
+		<!-- Shares only what the Control Center tiles show. -->
+		<string>$(AppIdentifierPrefix)com.eqtargets.ios.controls</string>
+	</array>
+</dict>
+</plist>

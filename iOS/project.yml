@@ -1,0 +1,220 @@
+# EQtargets for iOS
+#
+#   cd iOS && xcodegen generate
+#
+# A separate project on purpose: the Mac project's base settings are macOS-only,
+# and nothing here changes how the Mac app builds. The DSP is NOT copied. Both
+# apps compile the same files from ../Sources/EQTCore.
+#
+# Targets:
+#   EQtargets           The real app. Embeds the extension. Device only, and
+#                       signing needs a paid Apple Developer Program team.
+#   EQtargetsExtension  The Media Device Extension (Control Center output).
+#   EQtargetsPreview    Same app without the extension. Builds for the simulator,
+#                       because MediaDevice.framework is not in the simulator SDK.
+#   EQtargetsLogicTests DSP, link and model tests. Run on a simulator.
+#
+# DEVELOPMENT_TEAM is deliberately not set here.
+
+name: EQtargetsIOS
+options:
+  bundleIdPrefix: com.eqtargets
+  deploymentTarget:
+    iOS: "27.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+  defaultConfig: Debug
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_STRICT_CONCURRENCY: minimal
+    CLANG_ENABLE_OBJC_ARC: YES
+    GCC_C_LANGUAGE_STANDARD: gnu17
+    CLANG_WARN_DOCUMENTATION_COMMENTS: NO
+    TARGETED_DEVICE_FAMILY: "1,2"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    HEADER_SEARCH_PATHS:
+      - $(SRCROOT)/../Shared
+      - $(SRCROOT)/Sources/Link
+      - $(SRCROOT)/Sources/Extension
+  configs:
+    Release:
+      SWIFT_OPTIMIZATION_LEVEL: "-O"
+      SWIFT_COMPILATION_MODE: wholemodule
+      GCC_OPTIMIZATION_LEVEL: s
+
+targetTemplates:
+  EQtargetsApp:
+    type: application
+    platform: iOS
+    sources:
+      - path: Sources/App
+      - path: Sources/Audio
+      - path: Sources/Link
+      - path: Sources/Controls/EQControlState.swift
+      - path: Sources/Controls/EQControlIntents.swift
+      - path: ../Sources/EQTCore
+      - path: ../Sources/App/Logic
+      - path: ../Sources/App/Model/PresetStore.swift
+      - path: ../Sources/App/Model/MeterHub.swift
+      - path: ../Shared/EQTRingProtocol.h
+        buildPhase: none
+    settings:
+      base:
+        INFOPLIST_FILE: Sources/App/Info.plist
+        SWIFT_OBJC_BRIDGING_HEADER: Sources/App/App-Bridging-Header.h
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+      configs:
+        # The same shipping build as Espada and EQtargets Music. No -Ounchecked:
+        # the DSP runs on raw pointers, so its bounds checks stay.
+        Release: &shipBuild
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          SWIFT_COMPILATION_MODE: wholemodule
+          GCC_OPTIMIZATION_LEVEL: "3"
+          LLVM_LTO: "YES"                           # C and Objective-C only
+          SWIFT_LTO: "YES"                          # what reaches the Swift code
+          SWIFT_CROSS_MODULE_OPTIMIZATION: "YES"
+          DEAD_CODE_STRIPPING: YES
+          ENABLE_NS_ASSERTIONS: NO
+          DEPLOYMENT_POSTPROCESSING: YES
+          STRIP_INSTALLED_PRODUCT: YES
+          STRIP_STYLE: all
+          STRIP_SWIFT_SYMBOLS: YES
+          COPY_PHASE_STRIP: NO
+          ARCHS: arm64
+          ONLY_ACTIVE_ARCH: NO
+          VALIDATE_PRODUCT: YES
+    dependencies:
+      - sdk: AVFoundation.framework
+
+targets:
+
+  EQtargets:
+    templates: [EQtargetsApp]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.eqtargets.ios
+        PRODUCT_NAME: EQtargets
+        # An EMPTY array: App Store validation wants the key on the host, and any
+        # value here stops the host from opening an audio session ('!pla').
+        CODE_SIGN_ENTITLEMENTS: Sources/App/EQtargets.entitlements
+        SWIFT_ACTIVE_COMPILATION_CONDITIONS: "$(inherited) EQT_HAS_EXTENSION"
+    dependencies:
+      - target: EQtargetsExtension
+        embed: true
+        codeSign: true
+      - target: EQtargetsControls
+        embed: true
+        codeSign: true
+
+  EQtargetsPreview:
+    templates: [EQtargetsApp]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.eqtargets.ios.preview
+        PRODUCT_NAME: EQtargets Preview
+
+  EQtargetsExtension:
+    type: extensionkit-extension
+    platform: iOS
+    sources:
+      - path: Sources/Extension
+      - path: Sources/Link
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.eqtargets.ios.extension
+        PRODUCT_NAME: EQtargetsExtension
+        INFOPLIST_FILE: Sources/Extension/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Sources/Extension/Extension.entitlements
+        SWIFT_OBJC_BRIDGING_HEADER: Sources/Extension/Extension-Bridging-Header.h
+      configs:
+        Release: *shipBuild
+    dependencies:
+      - sdk: MediaDevice.framework
+      - sdk: CoreAudio.framework
+      - sdk: AudioToolbox.framework
+      - sdk: AVFoundation.framework
+      - sdk: Network.framework
+      - sdk: ExtensionFoundation.framework
+
+  # The two Control Center tiles: EQ on/off and Bass Style.
+  EQtargetsControls:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: Sources/Controls
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.eqtargets.ios.controls
+        PRODUCT_NAME: EQtargetsControls
+        INFOPLIST_FILE: Sources/Controls/Info.plist
+        CODE_SIGN_ENTITLEMENTS: Sources/Controls/Controls.entitlements
+      configs:
+        Release: *shipBuild
+    dependencies:
+      - sdk: WidgetKit.framework
+      - sdk: SwiftUI.framework
+      - sdk: AppIntents.framework
+
+  EQtargetsLogicTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: Tests/Logic
+      - path: Sources/Link
+      - path: Sources/Audio/LinkReservePolicy.swift
+      - path: Sources/Audio/LinkEngineRules.swift
+      - path: Sources/Audio/LinkJournal.swift
+      - path: Sources/Audio/KeepAwakeHolder.swift
+      - path: Sources/Audio/EngineDriving.swift
+      - path: Sources/Audio/OutputDevice.swift
+      - path: Sources/Controls/EQControlState.swift
+      - path: Sources/Controls/EQControlIntents.swift
+      - path: Sources/App/Model
+      - path: ../Sources/App/Model/PresetStore.swift
+      - path: ../Sources/App/Model/MeterHub.swift
+      - path: Sources/Extension/EQTDeviceDriver.m
+      - path: Sources/Extension/EQTDeviceDriver.h
+        buildPhase: none
+      - path: ../Sources/EQTCore
+      - path: ../Sources/App/Logic
+      - path: ../Tests/EQTCoreTests
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.eqtargets.ios.logictests
+        GCC_PREPROCESSOR_DEFINITIONS: ["$(inherited)", "EQT_TEST_HOOKS=1"]
+        SWIFT_OBJC_BRIDGING_HEADER: Tests/Logic/Tests-Bridging-Header.h
+        GENERATE_INFOPLIST_FILE: YES
+        TEST_HOST: ""
+        BUNDLE_LOADER: ""
+    dependencies:
+      - sdk: CoreAudio.framework
+
+schemes:
+  EQtargets:
+    build:
+      targets:
+        EQtargets: all
+        EQtargetsExtension: all
+    run:
+      config: Release
+    archive:
+      config: Release
+  EQtargetsPreview:
+    build:
+      targets:
+        EQtargetsPreview: all
+    run:
+      config: Debug
+  EQtargetsLogicTests:
+    build:
+      targets:
+        EQtargetsLogicTests: [test]
+    test:
+      config: Debug
+      targets:
+        - EQtargetsLogicTests
